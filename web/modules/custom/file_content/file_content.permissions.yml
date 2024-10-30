@@ -1,0 +1,4 @@
+administer file_content configuration:
+  title: 'Administer file_content configuration'
+  description: 'Optional description.'
+  restrict access: true

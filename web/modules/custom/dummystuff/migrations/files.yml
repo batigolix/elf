@@ -1,0 +1,59 @@
+id: files
+label: Dummy files
+migration_tags: dummy
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      fid: 1
+      filename: Amaro_Pargo.jpg
+    -
+      fid: 2
+      filename: Anglo-Dutch_fleet_in_the_bay_of_Algiers_as_support_for_the_ultimatum_demanding_the_release_of_white_slaves_on_august_26_1816.jpg
+    -
+      fid: 3
+      filename: Iban_Prahu.jpg
+    -
+      fid: 4
+      filename: Cotes_de_la_Mer_Noire.jpg
+  ids:
+    fid:
+      type: integer
+  constants:
+    # You may need to change this path if you cannot place your module
+    # in a directory called simply “sample”.
+    files_path_rel: modules/custom/dummystuff/files/
+    dest_path: public://
+process:
+  docroot:
+    plugin: callback
+    callable: realpath
+    source: '.'
+  files_path:
+    plugin: concat
+    source:
+      - '@docroot'
+      - constants/files_path_rel
+    delimiter: /
+  file_source:
+    plugin: concat
+    source:
+      - '@files_path'
+      - filename
+  file_dest:
+    plugin: concat
+    source:
+      - constants/dest_path
+      - filename
+  uid:
+    plugin: default_value
+    default_value: 1
+  fid: fid
+  filename: filename
+  uri:
+    plugin: file_copy
+    source:
+      - '@file_source'
+      - '@file_dest'
+destination:
+  plugin: entity:file

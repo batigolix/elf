@@ -1,0 +1,73 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node_service
+migration_tags:
+  - node
+  - dummy
+label: 'Node: Service'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: service1
+      title: The ugly creature nosily eats the astral city
+      teaser: Future at the solar sphere was the vision of mystery, destroyed to a devastated species.
+      image: keplers-supernova-remnant.jpg
+      branch: 'Assimilation'
+      service: Wildly acquire a pathway
+    -
+      id: service2
+      title: Sunt orgiaes gratia superbus, varius armariumes
+      teaser: Die without understanding, and we won’t invade a lieutenant commander. Collectives experiment from adventures like ship-wide sensors.
+      image: ic5332.jpg
+      branch: 'Hypnosis'
+      service: Wildly acquire a pathway
+    -
+      id: service3
+      title: The devastated astronaut revolutionary converts the parasite
+      teaser: Sensor at the colony was the history of advice, converted to a bare queen.
+      image: cartwheel-galaxy.jpg
+      branch: 'Hypnosis'
+      service: Wildly acquire a pathway
+  ids:
+    id:
+      type: string
+  constants:
+    user: jane@finalist.nl
+#    related_service: 'Peace, pressure, and galaxy'
+process:
+  title: title
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: migration_lookup
+    migration: user
+    source: constants/user
+  'field_teaser_text': teaser
+  field_related_service:
+    plugin: migration_lookup
+    migration:
+      - taxonomy_term_service
+    no_stub: true
+    source: service
+  field_branch:
+    plugin: migration_lookup
+    migration:
+      - taxonomy_term_branch
+    no_stub: true
+    source: branch
+  field_teaser_image:
+    plugin: migration_lookup
+    migration: media_image
+    source: image
+destination:
+  plugin: 'entity:node'
+  default_bundle: 'service'
+migration_dependencies:
+  required:
+    - taxonomy_term_branch
+    - taxonomy_term_service
+    - user
+    - media_image

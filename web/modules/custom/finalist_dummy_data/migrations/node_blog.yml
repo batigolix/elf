@@ -1,0 +1,91 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node_blog
+migration_tags:
+  - node
+  - dummy
+label: 'Node: Blog'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: case1
+      title: Admirals die from winds like evil sonic showers.
+      teaser: Devastation at the universe was the powerdrain of beauty, destroyed to a futile crew.
+      image: cme-erupts-on-sun.jpg
+      branch: 'Assimilation'
+      service: 'Wildly acquire a pathway'
+      topic: NT01
+      blog_type: Essay
+    -
+      id: case2
+      title: The evil c-beam bravely pulls the planet.
+      teaser: All those minerals will be lost in cores like voyages in pressures The phenomenan is bravely final.
+      image: glittering-landscape-star-birth.png
+      branch: 'Hypnosis'
+      service: 'Wildly acquire a pathway'
+      topic: NT01
+      blog_type: Essay
+    -
+      id: case3
+      title: The carnivorous green people wildly pulls the emitter.
+      teaser: Courage at the infinity room was the flight of energy, attacked to a crazy queen.
+      image: keplers-supernova-remnant.jpg
+      branch: 'Hypnosis'
+      service: 'Peace, pressure, and galaxy'
+      topic: NT01
+      blog_type: Manifest
+  ids:
+    id:
+      type: string
+  constants:
+    user: jane@finalist.nl
+process:
+  title: title
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: migration_lookup
+    migration: user
+    source: constants/user
+  'field_teaser_text': teaser
+  field_related_service:
+    plugin: migration_lookup
+    migration:
+      - taxonomy_term_service
+    no_stub: true
+    source: service
+  field_blog_type:
+    plugin: migration_lookup
+    migration:
+      - taxonomy_term_blog_type
+    no_stub: true
+    source: blog_type
+  field_branch:
+    plugin: migration_lookup
+    migration:
+      - taxonomy_term_branch
+    no_stub: true
+    source: branch
+  field_related_topic:
+    plugin: migration_lookup
+    migration:
+      - node_topic
+    no_stub: true
+    source: topic
+  field_teaser_image:
+    plugin: migration_lookup
+    migration: media_image
+    source: image
+destination:
+  plugin: 'entity:node'
+  default_bundle: 'blog'
+migration_dependencies:
+  required:
+    - taxonomy_term_branch
+    - taxonomy_term_service
+    - taxonomy_term_blog_type
+    - user
+    - media_image

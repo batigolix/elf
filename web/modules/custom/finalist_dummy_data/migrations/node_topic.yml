@@ -1,0 +1,69 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node_topic
+migration_tags:
+  - node
+  - dummy
+label: 'Node: Topic'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: NT01
+      title: The disconnection is a distant machine
+      teaser: Stigma at the universe was the resistance of voyage, controlled to a cold species.
+      user: jane@finalist.nl
+      image: cartwheel-galaxy.jpg
+      related_service: 'Wildly acquire a pathway'
+      branch: 'Assimilation'
+    -
+      id: NT02
+      title: The attitude is a unrelated teleporter
+      teaser: Nunquam vitare diatria.
+      user: jane@finalist.nl
+      image: cartwheel-galaxy.jpg
+      related_service: 'Wildly acquire a pathway'
+      branch: 'Assimilation'
+    -
+      id: NT03
+      title: It is a delighted peace, sir
+      teaser: The sonic shower malfunctions disconnection like a huge space.
+      user: jane@finalist.nl
+      image: cartwheel-galaxy.jpg
+      related_service: 'Wildly acquire a pathway'
+      branch: 'Assimilation'
+  ids:
+    id:
+      type: string
+process:
+  title: title
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: migration_lookup
+    migration: user
+    source: user
+  'field_teaser_text': teaser
+  field_related_service:
+    plugin: migration_lookup
+    migration:
+      - taxonomy_term_service
+    no_stub: true
+    source: related_service
+  field_branch:
+    plugin: migration_lookup
+    migration:
+      - taxonomy_term_branch
+    no_stub: true
+    source: branch
+#    @todo media
+destination:
+  plugin: 'entity:node'
+  default_bundle: 'topic'
+migration_dependencies:
+  required:
+    - taxonomy_term_branch
+    - taxonomy_term_service
+    - user

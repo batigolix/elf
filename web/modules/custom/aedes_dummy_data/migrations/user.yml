@@ -1,0 +1,91 @@
+langcode: en
+status: true
+id: user
+label: User
+migration_tags:
+  - dummy
+  - user
+source:
+  plugin: embedded_data
+  data_rows:
+    - email: jim@finalist.nl
+      role: administrator
+      file: person-1.jpg
+      name: Jim
+      procid: 1
+    - email: janet@finalist.nl
+      role: webmaster
+      file: person-2.jpg
+      name: Janet
+      procid: 1
+    - email: jack@finalist.nl
+      role: redacteur
+      file: person-3.jpg
+      name: Jack
+      procid: 1
+    - email: jill@finalist.nl
+      role: aedes_lid
+      file: person-4.jpg
+      name: Jill
+      procid: 1
+    - email: jeniffer@finalist.nl
+      role: aedes_auteur
+      file: person-5.jpg
+      name: Jeniffer
+      procid: 1
+    - email: johanna@finalist.nl
+      role: community_manager
+      file: person-6.jpg
+      name: Johanna
+      procid: 1
+    - email: jared@finalist.nl
+      role: authenticaed
+      file: person-7.jpg
+      name: Jared
+      procid: 1
+  ids:
+    email:
+      type: string
+  constants:
+    agree: true
+    lastname: Van Finalistenstein
+    org: Finalist
+destination:
+  plugin: entity:user
+  md5_passwords: true
+process:
+  mail: email
+  init: email
+  name: email
+  roles: role
+  user_picture:
+    plugin: migration_lookup
+    migration: file
+    source: file
+  status:
+    plugin: default_value
+    default_value: 1
+  field_accept_terms: constants/agree
+  field_firstname: name
+  field_lastname: constants/lastname
+  field_organisation: constants/org
+  field_job: role
+  field_aedes_magazine: constants/agree
+  field_corporation_monitor: constants/agree
+  field_email: email
+  field_membership_letter: constants/agree
+  field_newsletter: constants/agree
+  field_press_messages: constants/agree
+  field_update: constants/agree
+#  field_job_title
+#  field_my_subjects
+  # @todo figure out a PROC ID.
+  # using Arjen Klops ID.
+  field_procurios_id:
+    plugin: default_value
+    default_value: 69118
+#  field_phone
+#  field_user_staff_link
+migration_dependencies:
+  required:
+    - file

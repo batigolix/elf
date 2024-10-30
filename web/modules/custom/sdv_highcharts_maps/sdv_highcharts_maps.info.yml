@@ -1,0 +1,17 @@
+name: 'SDV Highcharts maps'
+type: module
+description: 'SDV Highcharts maps contains a paragraph and field type that allows generating schematic maps using the Highcarts maps JS library (https://www.highcharts.com/blog/products/maps).'
+core: 8.x
+package: 'SDV'
+dependencies:
+  - field
+  - serialization
+config_devel:
+  - paragraphs.paragraphs_type.highcharts_map
+  - field.storage.paragraph.field_highcharts_map
+  - field.field.paragraph.highcharts_map.field_highcharts_map
+  - core.entity_view_display.paragraph.highcharts_map.preview
+  - core.entity_view_display.paragraph.highcharts_map.default
+  - core.entity_form_display.paragraph.highcharts_map.default
+  - core.entity_view_display.paragraph.highcharts_map.preview
+core_version_requirement: ^8 || ^9

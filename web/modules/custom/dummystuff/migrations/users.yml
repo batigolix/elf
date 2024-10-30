@@ -1,0 +1,45 @@
+id: users
+label: Users
+migration_tags: dummy
+source:
+  plugin: embedded_data
+  data_rows:
+    - id: 1
+      name: calicojack
+      email: calicojack@finalist.nl
+      role: authenticated
+      user_password: 'jolly boat boom'
+    - id: 2
+      name: graceomalley
+      email: graceomalley@finalist.nl
+      role: webmaster
+      user_password: 'jolly boat boom'
+    - id: 3
+      name: blackbeard
+      email: blackbeard@finalist.nl
+      role: administrator
+      user_password: 'jolly boat boom'
+    - id: 4
+      name: edwardlow
+      email: edwardlow@finalist.nl
+      role: content_editor
+      user_password: 'jolly boat boom'
+
+  ids:
+    id:
+      type: integer
+destination:
+  plugin: entity:user
+  md5_passwords: true
+process:
+  mail: email
+  init: email
+  name: name
+  pass:
+    plugin: callback
+    callable: md5
+    source: user_password
+  status:
+    plugin: default_value
+    default_value: 1
+  roles: role

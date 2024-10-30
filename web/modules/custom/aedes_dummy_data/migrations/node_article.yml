@@ -1,0 +1,125 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node_article
+migration_tags:
+  - node
+  - dummy
+label: 'Node: article'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      title: Admirals die from winds like evil sonic showers.
+      teaser: Devastation at the universe was the PFAS powerdrain of beauty, destroyed to a futile crew. Post-apocalyptic harvest.
+      image: cme-erupts-on-sun.jpg
+      type: Essay
+      access: public
+      alias: /article-1
+      state: published
+      subject: Nanomachine
+      date: 1704063600
+    -
+      title: The evil c-beam bravely pulls the planet.
+      teaser: All those minerals will be lost in cores like voyages in pressures The universe is bravely final. Post-apocalyptic harvest.
+      image: glittering-landscape-star-birth.png
+      type: Essay
+      access: public
+      alias: /article-2
+      state: published
+      subject: Nanomachine
+      date: 1704063600
+    -
+      title: The carnivorous green people wildly pulls the emitter.
+      teaser: Courage at the infinity room was the flight of energy, attacked to a crazy queen.
+      image: keplers-supernova-remnant.jpg
+      type: Manifest
+      # provides a restricted content
+      access: members
+      alias: /article-3
+      state: published
+      subject: Earth
+      date: 1704063600
+    -
+      title: The crewmate flies powerdrain like a chemical space suit
+      teaser: Flight at the habitat cunninglyshields up was the stigma of honor, influenced to a brave admiral
+      image: keplers-supernova-remnant.jpg
+      type: Manifest
+      access: public
+      alias: /article-4
+      # provides a draft content
+      state: draft
+      subject: Earth
+      date: 1704063600
+    -
+      title: Walk without life, and we won’t love a sun
+      teaser: Flight at the habitat cunninglyshields up was the stigma of honor, influenced to a brave admiral
+      image: keplers-supernova-remnant.jpg
+      type: Manifest
+      # provides a non public content
+      access: authenticated
+      alias: /article-5
+      state: published
+      subject: Devastation
+      date: 1704063600
+    -
+      # provides a good scoring search result article
+      title: The post-apocalyptic harvest bravely pulls the planet.
+      teaser: All those stikstof minerals will be lost in cores like voyages in pressures The universe is bravely final. Post-apocalyptic harvest.
+      image: glittering-landscape-star-birth.png
+      type: Essay
+      access: public
+      alias: /article-6
+      state: published
+      subject: Earth
+      date: 1672527600
+  ids:
+    title:
+      type: string
+  constants:
+    user: janet@finalist.nl
+    show: true
+process:
+  title: title
+  created: date
+#  changed: date
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: migration_lookup
+    migration: user
+    source: constants/user
+  'field_teaser/value': teaser
+  'field_teaser/format':
+    plugin: default_value
+    default_value: 'basic_html'
+  field_article_type:
+    plugin: migration_lookup
+    migration:
+      - taxonomy_term_artikel
+    no_stub: true
+    source: type
+  field_teaser_image:
+    plugin: migration_lookup
+    migration: media_image
+    source: image
+  field_access: access
+  field_show_on_news: constants/show
+  field_thema_onderwerp:
+    plugin: migration_lookup
+    migration: taxonomy_term_onderwerpen
+    source: subject
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
+  moderation_state: state
+destination:
+  plugin: 'entity:node'
+  default_bundle: 'article'
+migration_dependencies:
+  required:
+    - taxonomy_term_artikel
+    - user
+    - media_image

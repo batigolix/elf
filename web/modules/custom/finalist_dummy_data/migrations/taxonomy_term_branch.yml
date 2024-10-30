@@ -1,0 +1,24 @@
+id: taxonomy_term_branch
+migration_tags:
+  - dummy
+  - taxonomy
+label: 'Taxonomy term: Branch'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      name: Particulas
+    -
+      name: Hypnosis
+    -
+      name: Assimilation
+  ids:
+    name:
+      type: string
+  constants:
+    vocabulary: branch
+process:
+  name: name
+  vid: constants/vocabulary
+destination:
+  plugin: 'entity:taxonomy_term'

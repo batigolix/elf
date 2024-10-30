@@ -1,0 +1,24 @@
+id: taxonomy_term_thema_s
+migration_tags:
+  - dummy
+  - taxonomy
+label: 'Taxonomy term: thema_s'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      name: Surprisingly solid
+    -
+      name: Starfleet
+    -
+      name: Mankind
+  ids:
+    name:
+      type: string
+  constants:
+    vocabulary: thema_s
+process:
+  name: name
+  vid: constants/vocabulary
+destination:
+  plugin: 'entity:taxonomy_term'

@@ -1,0 +1,6 @@
+services:
+  dumdum.event_subscriber:
+    class: Drupal\dumdum\EventSubscriber\DumdumSubscriber
+    arguments: ['@messenger']
+    tags:
+      - { name: event_subscriber }

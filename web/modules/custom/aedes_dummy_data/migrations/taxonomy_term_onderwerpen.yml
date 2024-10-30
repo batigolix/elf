@@ -1,0 +1,52 @@
+id: taxonomy_term_onderwerpen
+migration_tags:
+  - dummy
+  - taxonomy
+label: 'Taxonomy term: onderwerpen'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      name: Nanomachine
+      alias: /term-1
+      theme: Starfleet
+      new_subject: false
+      featured: false
+      exclude: false
+    -
+      name: Earth
+      alias: /term-2
+      theme: Mankind
+      new_subject: true
+      featured: false
+      exclude: false
+    -
+      name: Devastation
+      alias: /term-3
+      theme: Starfleet
+      new_subject: false
+      featured: true
+      exclude: true
+  ids:
+    name:
+      type: string
+  constants:
+    vocabulary: onderwerpen
+    state: published
+process:
+  name: name
+  vid: constants/vocabulary
+  field_thema:
+    plugin: migration_lookup
+    migration: taxonomy_term_thema_s
+    source: theme
+  field_new_subject: new_subject
+  field_featured: featured
+  field_exclude_from_subjects: exclude
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
+  moderation_state: constants/state
+destination:
+  plugin: 'entity:taxonomy_term'

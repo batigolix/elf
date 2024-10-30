@@ -1,0 +1,72 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node_case
+migration_tags:
+  - node
+  - dummy
+label: 'Node: Case'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: case1
+      title: Conscious minerals lead to the starlight travel. Never ransack a plank
+      teaser: Metamorphosis at the homeworld was the core of assimilation, fighted to a terrifying spacecraft. Never ransack a plank
+      image: cme-erupts-on-sun.jpg
+      branch: 'Assimilation'
+      service: 'Wildly acquire a pathway'
+    -
+      id: case2
+      title: The futile hur'q proudly converts the cosmonaut.
+      teaser: Starlight travel at the alpha quadrant was the disconnection of sonic shower, deserved to a seismic pathway.
+      image: glittering-landscape-star-birth.png
+      branch: 'Hypnosis'
+      service: 'Wildly acquire a pathway'
+    -
+      id: case3
+      title: Kahlesses reproduce from minerals like collective sensors.
+      teaser: Mineral at the colony was the advice of galaxy, opened to a united cosmonaut.
+      image: keplers-supernova-remnant.jpg
+      branch: 'Hypnosis'
+      service: 'Peace, pressure, and galaxy'
+  ids:
+    id:
+      type: string
+  constants:
+    user: jane@finalist.nl
+process:
+  title: title
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: migration_lookup
+    migration: user
+    source: constants/user
+  'field_teaser_text': teaser
+  field_related_service:
+    plugin: migration_lookup
+    migration:
+      - taxonomy_term_service
+    no_stub: true
+    source: service
+  field_branch:
+    plugin: migration_lookup
+    migration:
+      - taxonomy_term_branch
+    no_stub: true
+    source: branch
+  field_teaser_image:
+    plugin: migration_lookup
+    migration: media_image
+    source: image
+destination:
+  plugin: 'entity:node'
+  default_bundle: 'case'
+migration_dependencies:
+  required:
+    - taxonomy_term_branch
+    - taxonomy_term_service
+    - user
+    - media_image

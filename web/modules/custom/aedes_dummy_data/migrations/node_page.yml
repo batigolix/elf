@@ -1,0 +1,74 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node_page
+migration_tags:
+  - node
+  - dummy
+label: 'Node: Page'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: page1
+      title: The disconnection is a distant machine
+      teaser: Stigma at the universe was the resistance of voyage, controlled to a cold species.
+      user: janet@finalist.nl
+      image: cartwheel-galaxy.jpg
+      related_service: 'Wildly acquire a pathway'
+      branch: 'Assimilation'
+      alias: /page-1
+    -
+      id: page2
+      title: Countless crewmates influence reliable, bare transporters
+      teaser: Ellipse at the homeworld was the resistance of mystery, accelerated to a united admiral
+      user: janet@finalist.nl
+      image: bat-shadow.png
+      related_service: 'Peace, pressure, and galaxy'
+      branch: 'Assimilation'
+      alias: /page-2
+    -
+      id: page3
+      title: The brave alien technically deceives the parasite
+      teaser: Life at the port was the stigma of core, captured to a reliable planet, fighted to a terrifying spacecraft.
+      user: janet@finalist.nl
+      image: ic5332.jpg
+      related_service: 'Peace, pressure, and galaxy'
+      branch: 'Assimilation'
+      alias: /page-3
+  ids:
+    id:
+      type: string
+  constants:
+    link_title: Protons yell from understandings like interstellar planets
+    link_uri: http://example.com
+    state: published
+process:
+  title: title
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: migration_lookup
+    migration: user
+    source: user
+  field_media_image:
+    plugin: migration_lookup
+    migration: media_image
+    source: image
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
+  field_header_link/uri: constants/link_uri
+  field_header_link/title: constants/link_title
+  moderation_state: constants/state
+destination:
+  plugin: 'entity:node'
+  default_bundle: 'page'
+migration_dependencies:
+  required:
+    - taxonomy_term_branch
+    - taxonomy_term_service
+    - user
+    - media_image

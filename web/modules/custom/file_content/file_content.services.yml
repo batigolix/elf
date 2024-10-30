@@ -1,0 +1,6 @@
+services:
+  file_content.event_subscriber:
+    class: Drupal\file_content\EventSubscriber\FileContentSubscriber
+    arguments: ['@messenger']
+    tags:
+      - { name: event_subscriber }

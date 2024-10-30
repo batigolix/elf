@@ -1,0 +1,42 @@
+id: file
+label: "Files"
+migration_tags:
+  - dumdum
+source:
+  plugin: csv
+  path: modules/custom/dumdum/data/file.csv
+  ids: [id]
+  constants:
+    source_folder: modules/custom/dumdum/files/
+    dest_folder: public://
+process:
+  docroot:
+    plugin: callback
+    callable: realpath
+    source: '.'
+  file_source_path:
+    plugin: concat
+    source:
+      - '@docroot'
+      - constants/source_folder
+      - source_file_name
+    delimiter: /
+  file_destination_path:
+    plugin: concat
+    source:
+      - constants/dest_folder
+      - destination_file_name
+  uid:
+    plugin: default_value
+    default_value: 1
+  fid: fid
+  filename: destination_file_name
+  changed: timestamp
+  created: timestamp
+  uri:
+    plugin: file_copy
+    source:
+      - '@file_source_path'
+      - '@file_destination_path'
+destination:
+  plugin: entity:file

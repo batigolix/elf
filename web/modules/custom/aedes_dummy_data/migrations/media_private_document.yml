@@ -1,0 +1,42 @@
+id: media_private_document
+migration_tags:
+  - media
+  - private_document
+  - dummy
+label: "Media: private_document"
+source:
+  plugin: embedded_data
+  data_rows:
+    - file: sample.pdf
+      title: Go without voyage, and we won’t translate a sensor
+      access: authenticated
+      alias: /private-document-1
+    - file: sample-2.pdf
+      title: Tremble without alarm, and we won’t capture a ship
+      access: members
+      alias: /private-document-2
+  ids:
+    file:
+      type: string
+process:
+
+  name: title
+  field_media_private_document/target_id:
+      plugin: migration_lookup
+      migration: file
+      source: file
+  field_media_private_document/description: title
+  field_media_private_document/display:
+    plugin: default_value
+    default_value: 1
+  field_access: access
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
+destination:
+  plugin: 'entity:media'
+  default_bundle: private_document
+migration_dependencies:
+  required:
+    - file

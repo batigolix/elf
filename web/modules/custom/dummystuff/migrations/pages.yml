@@ -1,0 +1,135 @@
+id: pages
+label: Sample Nodes - Page
+migration_tags: dummy
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      title: |
+        Furl fluke quarter marooned measured fer yer chains mizzenmast keel lee
+        fathom rum
+      path: /furl-fluke-quarter
+      content_items:
+        -
+          sample_id: text1
+        -
+          sample_id: text2
+      paragraphz:
+        - id: 66
+          title: hoi
+          body: |
+            <p>  Furl fluke quarter marooned measured fer yer chains mizzenmast
+            keel lee fathom rum. Hempen halter careen tack wench yard cable gangway
+            furl gaff tender. Bowsprit capstan hail-shot careen line bring a
+            spring upon her cable flogging Brethren of the Coast Nelsons folly
+            gibbet.</p>
+        - id: 99
+          title: hai
+          body: |
+            <p>  Furl fluke quarter marooned measured fer yer chains mizzenmast
+            keel lee fathom rum. Hempen halter careen tack wench yard cable gangway
+            furl gaff tender. Bowsprit capstan hail-shot careen line bring a
+            spring upon her cable flogging Brethren of the Coast Nelsons folly
+            gibbet.</p>
+    -
+      title: |
+        Hempen halter careen tack wench yard cable gangway furl gaff tender
+      path: /hempen-halter
+      content_items:
+        -
+          sample_id: text1
+        -
+          sample_id: text2
+    -
+      title: |
+        Bowsprit capstan hail-shot careen line bring a spring upon her cable
+      path: /bowsprit-capstan
+      content_items:
+        -
+          sample_id: text3
+    -
+      title: Flogging Brethren of the Coast Nelsons folly gibbet
+      path: /flogging-brethren
+      content_items:
+        -
+          sample_id: text4
+  ids:
+    title:
+      type: string
+process:
+  type:
+    plugin: default_value
+    default_value: page
+  status:
+    plugin: default_value
+    default_value: 1
+  title: title
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': path
+#  field_paragraph:
+#    plugin: sub_process
+#    source: content_items
+#    process:
+#      target_id:
+#        plugin: migration_lookup
+#        migration:
+#          - texts
+#        source: sample_id
+#      target_revision_id: '@target_id'
+#  textss: content_items
+#    - plugin: get
+#      source:
+#        - '@youtube_1'
+#        - '@youtube_2'
+#        - '@youtube_3'
+#        - '@vimeo_1'
+
+  field_paragraph:
+    - plugin: sub_process
+      source: paragraphz
+      process:
+        _linklabel: linklabel
+        tempformat:
+          plugin: default_value
+          default_value: basic_html
+        target_id:
+          plugin: entity_generate
+          source: title
+          entity_type: paragraph
+          bundle: text
+          value_key: field_title
+          bundle_key: type
+          values:
+            'field_body/0/value': body
+            'field_body/0/format': '@tempformat'
+        _revision_id_value:
+          plugin: entity_value
+          source: '@target_id'
+          entity_type: paragraph
+          field_name: revision_id
+        target_revision_id: '@_revision_id_value/0/value'
+
+#  field_paragraph:
+#    plugin: sub_process
+#    source: '@textss'
+#    process:
+#      target_id:
+#        - plugin: skip_on_empty
+#          source: value
+#          method: process
+#        - plugin: entity_generate
+#          source: value
+#          entity_type: media
+#          bundle: remote_video
+#          bundle_key: bundle
+#          value_key: field_media_oembed_video
+#          values:
+#            field_media_oembed_video: url
+destination:
+  plugin: entity:node
+  default_bundle: text
+migration_dependencies:
+  required:
+    - texts

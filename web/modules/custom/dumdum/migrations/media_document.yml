@@ -1,0 +1,30 @@
+id: media_document
+migration_tags:
+  - dumdum
+  - media
+label: "Media - document"
+source:
+  plugin: csv
+  path: modules/custom/dumdum/data/media_document.csv
+  ids: [id]
+process:
+  name: name
+  field_media_document/target_id:
+    -
+      plugin: migration_lookup
+      migration: file
+      source: fid
+  field_media_document/description: description
+  created: timestamp
+  changed: timestamp
+  uid:
+    plugin: migration_lookup
+    source: uid
+    migration: user
+destination:
+  plugin: 'entity:media'
+  default_bundle: document
+migration_dependencies:
+  required:
+    - user
+    - file

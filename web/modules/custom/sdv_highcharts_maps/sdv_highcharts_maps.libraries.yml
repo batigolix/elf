@@ -1,0 +1,37 @@
+sdv_highcharts_maps:
+  version: 1.0
+  js:
+    /libraries/highcharts-maps/js/highmaps.src.js : {}
+    /libraries/highcharts-maps/js/modules/exporting.js : {}
+    js/map.js: {}
+  css:
+    component:
+      css/map.css: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+accessibility:
+  js:
+    /libraries/highcharts-maps/js/modules/accessibility.js : {}
+ec-europe:
+  js:
+    js/map-types/ec-europe.geojson.js: {}
+hc-nl-municipalities:
+  js:
+    js/map-types/hc-nl-municipalities.geojson.js: {}
+hc-nl-provinces:
+  js:
+    js/map-types/hc-nl-provinces.geojson.js: {}
+hc-world:
+  js:
+    js/map-types/hc-world.geojson.js: {}
+rivm-nl-ggd-regions:
+  js:
+    js/map-types/rivm-nl-ggd-regions.geojson.js: {}
+rivm-nl-municipalities:
+  js:
+    js/map-types/rivm-nl-municipalities.geojson.js: {}
+rivm-nl-provinces:
+  js:
+    js/map-types/rivm-nl-provinces.geojson.js: {}

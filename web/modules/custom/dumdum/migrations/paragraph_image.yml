@@ -1,0 +1,25 @@
+id: paragraph_image
+label: "Paragraph - image"
+migration_tags:
+  - dumdum
+  - paragraph
+source:
+  plugin: csv
+  path: modules/custom/dumdum/data/paragraph_image.csv
+  ids: [id]
+  constants:
+    path_prefix: "modules/custom/dumdum/files/"
+process:
+  field_title: short_text
+  field_image:
+    plugin: migration_lookup
+    migration: media_image
+    source: mid
+  field_caption: short_text
+  field_description: medium_text
+destination:
+  plugin: entity:paragraph
+  default_bundle: image
+migration_dependencies:
+  required:
+    - media_image

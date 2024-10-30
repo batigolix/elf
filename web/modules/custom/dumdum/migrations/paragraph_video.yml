@@ -1,0 +1,24 @@
+id: paragraph_video
+label: "Paragraph - video"
+migration_tags:
+  - dumdum
+  - paragraph
+source:
+  plugin: csv
+  path: modules/custom/dumdum/data/paragraph_video.csv
+  ids: [id]
+  constants:
+    path_prefix: "modules/custom/dumdum/files/"
+process:
+  field_title: short_text
+  field_video:
+    plugin: migration_lookup
+    migration: media_remote_video
+    source: mid
+  field_description: medium_text
+destination:
+  plugin: entity:paragraph
+  default_bundle: video
+migration_dependencies:
+  required:
+    - media_video

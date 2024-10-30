@@ -1,0 +1,7 @@
+sdv_highcharts_maps.download.example_dataset:
+  path: '/sdv_highcharts_maps/download/example_dataset/{file_name}'
+  defaults:
+    _controller: '\Drupal\sdv_highcharts_maps\Controller\DownloadExampleDatasetController::build'
+    _title: 'Download example dataset'
+  requirements:
+    _permission: 'access content'

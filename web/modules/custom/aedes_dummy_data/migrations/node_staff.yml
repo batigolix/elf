@@ -1,0 +1,84 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node_staff
+migration_tags:
+  - node
+  - dummy
+label: 'Node: staff'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      name: "Of Perga"
+      firstname: "Apollonius"
+      text: Stigma at the universe was the resistance of voyage, controlled to a cold species.
+      user: janet@finalist.nl
+      mail: appie@finalist.nl
+      image: person-6.jpg
+      branch: 'Assimilation'
+      function: Ancient astronomer
+      phone: "+31061234567890"
+      alias: /staff-1
+      show: false
+    -
+      name: "Of Cyzicus"
+      firstname: "Callippus"
+      text: Pattern at the galaxy was the starlight travel of devastation, captured to a crazy nanomachine.
+      user: janet@finalist.nl
+      mail: clippy@finalist.nl
+      image: person-7.jpg
+      branch: 'Assimilation'
+      function: Ancient astronomer
+      phone: "+31061234567890"
+      alias: /staff-2
+      show: true
+  ids:
+    name:
+      type: string
+  constants:
+    agree: true
+    url: https://example.com
+    state: published
+process:
+  title: name
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: migration_lookup
+    migration: user
+    source: user
+#  field_department: branch
+  body: text
+#  field_contact_form
+  field_e_mail: mail
+  field_show_e_mail: show
+#  field_expertise:
+  field_job_details: function
+  field_linkedin: constants/url
+#  field_yoast_seo
+  field_staff_user_link:
+    plugin: migration_lookup
+    migration: user
+    source: user
+  field_telephone_number: phone
+  field_twitter: constants/url
+  field_search_allowed: constants/agree
+  field_firstname: firstname
+  field_media_image:
+    plugin: migration_lookup
+    migration: media_image
+    source: image
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
+  moderation_state: constants/state
+destination:
+  plugin: 'entity:node'
+  default_bundle: 'staff'
+migration_dependencies:
+  required:
+    - user
+    - media_image

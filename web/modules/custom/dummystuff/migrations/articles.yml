@@ -1,0 +1,79 @@
+id: articles
+label: Dummy articles
+migration_tags: dummy
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      title: | 
+        Cat o'nine tails rope's end square-rigged gunwalls sloop trysail
+        yo-ho-ho grapple gibbet rutters
+      path: /cat-nine-o-tails-rope
+      file_fid: 1
+      body: |
+        <p>  Furl fluke quarter marooned measured fer yer chains mizzenmast
+        keel lee fathom rum. Hempen halter careen tack wench yard cable gangway
+        furl gaff tender. Bowsprit capstan hail-shot careen line bring a
+        spring upon her cable flogging Brethren of the Coast Nelsons folly
+        gibbet.</p>
+      link_uri: http://www.example.com/1
+      link_text: Click here 1
+      tags:
+        - Mizzenmast carouser
+        - List barkadeer
+        - Pink take
+        - Caulk interloper
+    -
+      title: |
+        Man-of-war squiffy nipper line ballast brig hail-shot Privateer topmast
+        draught
+      path: /man-of-war-squiffy-nipper
+      file_fid: 2
+      body: |
+        <p>  Furl fluke quarter marooned measured fer yer chains mizzenmast
+        keel lee fathom rum. Hempen halter careen tack wench yard cable gangway
+        furl gaff tender. Bowsprit capstan hail-shot careen line bring a
+        spring upon her cable flogging Brethren of the Coast Nelsons folly
+        gibbet.</p>
+      tags:
+        - Belaying pin yard
+        - Code of conduct provost
+        - Hornswaggle furl strike
+        - Lookout handsomely sutler
+  ids:
+    title:
+      type: string
+process:
+  type:
+    plugin: default_value
+    default_value: article
+  status:
+    plugin: default_value
+    default_value: 1
+  title: title
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': path
+  'body/value': body
+  'body/format':
+    plugin: default_value
+    default_value: basic_html
+  field_tags:
+    - plugin: skip_on_empty
+      source: tags
+      method: process
+      message: 'Row does not contain tags.'
+    - plugin: migration_lookup
+      migration: tags
+  field_image:
+    plugin: migration_lookup
+    migration: files
+    source: file_fid
+  'field_link/uri': link_uri
+  'field_link/title': link_text
+destination:
+  plugin: entity:node
+migration_dependencies:
+  required:
+    - tags

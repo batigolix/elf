@@ -1,0 +1,20 @@
+id: taxonomy_tags
+migration_tags:
+  - dumdum
+  - taxonomy
+label: 'Taxonomy terms - tags'
+source:
+  plugin: csv
+  path: modules/custom/dumdum/data/taxonomy_tags.csv
+  ids: [id]
+  constants:
+    vocabulary: tags
+process:
+  name: short_text
+  'description/value': medium_text
+  'description/format':
+    plugin: default_value
+    default_value: basic_html
+  vid: constants/vocabulary
+destination:
+  plugin: 'entity:taxonomy_term'

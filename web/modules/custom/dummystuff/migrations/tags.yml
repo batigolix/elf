@@ -1,0 +1,42 @@
+id: tags
+migration_tags: dummy
+label: 'Tags taxonomy term migration'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      name: Tack Plate Fleet pirate
+    -
+      name: Shot across the bow
+    -
+      name: Crack Jennys tea cup
+    -
+      name: Hulk jolly boat
+    -
+      name: Boom poop deck sutler
+    -
+      name: List barkadeer
+    -
+      name: Mizzenmast carouser
+    -
+      name: Pink take
+    -
+      name: Caulk interloper
+    -
+      name: Belaying pin yard
+    -
+      name: Code of conduct provost
+    -
+      name: Hornswaggle furl strike
+    -
+      name: Lookout handsomely sutler
+  ids:
+    name:
+      type: string
+  constants:
+    vocabulary: tags
+process:
+  name: name
+  vid: constants/vocabulary
+destination:
+  plugin: 'entity:taxonomy_term'

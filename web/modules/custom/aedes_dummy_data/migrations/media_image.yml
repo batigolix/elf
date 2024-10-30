@@ -1,0 +1,42 @@
+id: media_image
+migration_tags:
+  - media
+  - image
+  - dummy
+label: "Media: Image"
+source:
+  plugin: embedded_data
+  data_rows:
+    - file: bat-shadow.png
+      title: Malfunction without rumour, and we won’t manifest a transporter.
+    - file: cartwheel-galaxy.jpg
+      title: Cartwheel galaxy
+    - file: ic5332.jpg
+      title: Brave, most unusual transformators never experience a calm, virtual ship.
+    - file: person-5.jpg
+      title: "Grace 'O Mally"
+    - file: oyster-nebula.jpg
+      title: Oyster nebula
+    - file: cme-erupts-on-sun.jpg
+      title: When the crew harvests for hyperspace, all ships feed brave, ordinary starships.
+    - file: glittering-landscape-star-birth.png
+      title: Vision at the cosmos that is when terrifying aliens harvest.
+    - file: keplers-supernova-remnant.jpg
+      title: Protons walk with honor at the final infinity room!
+  ids:
+    file:
+      type: string
+process:
+  name: title
+  field_media_image/target_id:
+      plugin: migration_lookup
+      migration: file
+      source: file
+  field_media_image/alt: title
+  field_media_image/title: title
+destination:
+  plugin: 'entity:media'
+  default_bundle: image
+migration_dependencies:
+  required:
+    - file

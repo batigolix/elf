@@ -1,0 +1,6 @@
+file_content.settings_form:
+  title: file content
+  description: Configure file content.
+  parent: system.admin_config_system
+  route_name: file_content.settings_form
+  weight: 10

@@ -1,0 +1,24 @@
+id: menu_link_content
+migration_tags:
+  - dumdum
+label: 'Menu link content'
+source:
+  plugin: csv
+  path: modules/custom/dumdum/data/menu_link_content.csv
+  ids: [id]
+process:
+  title: short_text
+  menu_name: menu
+  link/uri:
+    plugin: link_uri
+    source: uri
+  description: medium_text
+  expanded:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: entity:menu_link_content
+  default_bundle: menu_link_content
+migration_dependencies:
+  required:
+    - pages

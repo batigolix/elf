@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for dumdum module.
+ *
+ * @DCG
+ * This file is no longer required in Drupal 8.
+ * @see https://www.drupal.org/node/2217931
+ */
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\migrate\Plugin\MigrateSourceInterface;
+use Drupal\migrate\Row;
+use Drupal\migrate\Plugin\MigrationInterface;
+
+
+/**
+ * Implements hook_migrate_prepare_row().
+ */
+function dumdum_migrate_prepare_row(Row $row, MigrateSourceInterface $source, MigrationInterface $migration) {
+
+  // Puts paragraph entity references field values in drupal friendly array.
+  // @todo put this in a decent process plugin.
+  $paragraph_fields = ['field_sidebar_content', 'field_content'];
+  foreach ($paragraph_fields as $paragraph_field) {
+    $paragraph_field_values = $row->getSourceProperty($paragraph_field);
+    $value_new = [];
+    if ($paragraph_field_values) {
+      foreach ($paragraph_field_values as $value) {
+        $value_new[] = ['item_id' => $value['value']];
+      }
+      $row->setSourceProperty($paragraph_field . '_new', $value_new);
+    }
+  }
+}
+

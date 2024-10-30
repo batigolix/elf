@@ -1,0 +1,8 @@
+name: 'aedes dummy data'
+type: module
+description: 'Contains dummy data'
+package: Custom
+core_version_requirement: ^10
+dependencies:
+  - migrate_plus:migrate_plus
+  - migrate_tools:migrate_tools

@@ -1,0 +1,22 @@
+langcode: nl
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.highcharts_map.field_highcharts_map
+    - paragraphs.paragraphs_type.highcharts_map
+  module:
+    - sdv_highcharts_maps
+id: paragraph.highcharts_map.preview
+targetEntityType: paragraph
+bundle: highcharts_map
+mode: preview
+content:
+  field_highcharts_map:
+    type: highcharts_map_short_formatter
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

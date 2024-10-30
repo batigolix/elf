@@ -1,0 +1,90 @@
+id: texts
+label: Dummy Paragraphs - Text
+migration_tags: dummy
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      sample_id: text1
+      header: Man-of-war squiffy nipper
+      body_text: |
+        <p>  Furl fluke quarter marooned measured fer yer chains mizzenmast
+        keel lee fathom rum. Hempen halter careen tack wench yard cable gangway
+        furl gaff tender. Bowsprit capstan hail-shot careen line bring a
+        spring upon her cable flogging Brethren of the Coast Nelsons folly
+        gibbet.</p>
+    -
+      sample_id: text2
+      header: Line ballast brig hail-shot Privateer topmast draught
+      body_text: |
+        <p>Man-of-war squiffy nipper line ballast brig hail-shot Privateer
+        topmast draught. Buccaneer run a shot across the bow coxswain mizzen
+        draught hearties chase boom provost jolly boat. Capstan yawl poop deck
+        parrel topsail Sink me case shot ahoy hornswaggle Sea Legs.</p>
+    -
+      sample_id: text3
+      header: Buccaneer run a shot across the bow coxswain mizzen draught
+      body_text: |
+        <p>Tack Plate Fleet pirate run a shot across the bow crack Jennys
+        tea cup hulk jolly boat boom poop deck sutler. List barkadeer
+        mizzenmast carouser me pink take a caulk interloper belaying pin yard.
+        Code of conduct provost hornswaggle furl strike colors run a shot 
+        across the bow rope's end lookout handsomely sutler.</p> 
+        <p>Gunwalls ho loaded to the gunwalls sutler prow shrouds sheet heave
+        to jury mast blow the man down. Bilged on her anchor brigantine draft
+        lass booty trysail salmagundi hearties cog Privateer. Gangplank Sail
+        ho Admiral of the Black list rigging bilge scourge of the seven seas
+        execution dock reef chase guns.</p>
+        <p>Spirits clap of thunder hogshead overhaul me main sheet run a rig 
+        rope&#39;s end fathom sloop. Topmast fire ship hardtack salmagundi 
+        coxswain maroon mizzenmast hempen halter avast lad. Draught hardtack 
+        Sea Legs handsomely crimp Cat o&#39;nine tails knave hearties lookout
+        black spot.</p>
+    -
+      sample_id: text4
+      header: Topmast fire ship hardtack salmagundi
+      body_text: |
+        <p><a href="http://pirateipsum.me">Tack Plate Fleet pirate run a shot
+        across the bow crack</a> Jennys tea cup hulk jolly boat boom poop deck
+        sutler. List barkadeer mizzenmast carouser me pink take a caulk
+        interloper belaying pin yard. Code of conduct provost hornswaggle
+        furl <em>strike colors run a shot across</em> the bow rope&#39;s end
+        lookout handsomely sutler.</p><p>Man-of-war squiffy
+        nipper line ballast brig hail-shot Privateer topmast draught. 
+        <strong>Buccaneer run a shot</strong> across the bow coxswain mizzen
+        draught hearties chase boom provost jolly boat. Capstan yawl poop
+        deck parrel topsail Sink me case shot ahoy hornswaggle Sea Legs.</p>
+        <h2>Furl fluke quarter marooned</h2><p>Furl fluke quarter marooned 
+        measured fer yer chains mizzenmast keel lee fathom rum. Hempen 
+        halter:</p><ul><li>careen tack wench yard cable gangway</li>
+        <li>furl gaff tender</li><li>Bowsprit capstan hail-shot careen line
+        bring a spring</li></ul><p>Uupon her cable flogging Brethren of the 
+        Coast Nelsons folly gibbet.</p><h3>Spirits clap of thunder</h3>
+        <p>Spirits clap of thunder hogshead overhaul me main sheet run a rig 
+        rope&#39;s end fathom sloop. Topmast fire ship hardtack salmagundi 
+        coxswain maroon mizzenmast hempen halter avast lad. Draught hardtack 
+        Sea Legs handsomely crimp Cat o&#39;nine tails knave hearties lookout
+        black spot.</p><blockquote>Crack Jennys tea cup jury mast tender
+        killick cackle fruit Buccaneer Yellow Jack clap of thunder long boat 
+        scallywag. League quarterdeck fluke crack Jennys tea cup swab dead men
+        tell no tales coffer Shiver me timbers Gold Road marooned. Gangplank 
+        avast brig spyglass grog blossom lateen sail coffer warp cable no prey,
+        no pay.</blockquote><p>Cable Sink me lugger sloop lookout tender aft
+        lateen sail yard main sheet. Nipperkin killick hempen halter Barbary
+        Coast man-of-war heave to smartly Buccaneer jib gun. Spanker pillage
+        quarterdeck Pieces of Eight tack scallywag flogging square-rigged
+        gun wench.</p>
+  ids:
+    sample_id:
+      type: string
+process:
+  type:
+    plugin: default_value
+    default_value: text
+  field_header: header
+  'field_body/value': body_text
+  'field_body/format':
+    plugin: default_value
+    default_value: basic_html
+destination:
+  plugin: entity:paragraph

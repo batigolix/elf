@@ -1,0 +1,4 @@
+administer dumdum configuration:
+  title: 'Administer dumdum configuration'
+  description: 'Optional description.'
+  restrict access: true

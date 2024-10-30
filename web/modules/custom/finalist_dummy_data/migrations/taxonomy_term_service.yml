@@ -1,0 +1,32 @@
+id: taxonomy_term_service
+migration_tags:
+  - dummy
+  - taxonomy
+label: 'Taxonomy term: Service'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      name: Wildly acquire a pathway
+      parent: ''
+    -
+      name: Anomaly, courage, and history
+      parent: Wildly acquire a pathway
+    -
+      name: Peace, pressure, and galaxy
+      parent: Wildly acquire a pathway
+  ids:
+    name:
+      type: string
+  constants:
+    vocabulary: service
+process:
+  name: name
+  vid: constants/vocabulary
+  pid:
+    plugin: migration_lookup
+    migration: taxonomy_term_service
+    source: parent
+  parent: '@pid'
+destination:
+  plugin: 'entity:taxonomy_term'

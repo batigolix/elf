@@ -1,0 +1,33 @@
+id: user
+label: User
+migration_tags:
+  - dumdum
+source:
+  plugin: csv
+  path: modules/custom/dumdum/data/user.csv
+  ids: [id]
+destination:
+  plugin: entity:user
+  md5_passwords: true
+process:
+  mail: email
+  init: email
+  name: name
+  pass:
+    plugin: callback
+    callable: md5
+    source: email
+  field_first_name: first_name
+  field_last_name: last_name
+  created: timestamp
+  changed: timestamp
+  access: timestamp
+  login: timestamp
+  status:
+    plugin: default_value
+    default_value: 1
+  roles: role
+  user_picture:
+    plugin: migration_lookup
+    migration: file
+    source: fid

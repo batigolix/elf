@@ -1,0 +1,9 @@
+langcode: nl
+status: true
+dependencies: {  }
+id: highcharts_map
+label: 'Highcharts map'
+icon_uuid: null
+icon_default: null
+description: 'SDV Highcharts maps allows generating schematic maps. It integrates the Highcarts maps JS library (https://www.highcharts.com/blog/products/maps).'
+behavior_plugins: {  }

@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: dummy
+label: 'Dummy'
+description: 'A group of dummy migrations'
+source_type: ''
+module: null
+shared_configuration: null

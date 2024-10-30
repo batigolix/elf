@@ -1,0 +1,20 @@
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_highcharts_map
+    - paragraphs.paragraphs_type.highcharts_map
+  module:
+    - sdv_highcharts_maps
+id: paragraph.highcharts_map.field_highcharts_map
+field_name: field_highcharts_map
+entity_type: paragraph
+bundle: highcharts_map
+label: 'Highcharts map'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: highcharts_map_item

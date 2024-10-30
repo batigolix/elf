@@ -1,0 +1,7 @@
+services:
+  logger.channel.sdv_highcharts_maps:
+    parent: logger.channel_base
+    arguments: ['sdv_highcharts_maps']
+  sdv_highcharts_maps.manager:
+    class: Drupal\sdv_highcharts_maps\MapManager
+    arguments: ['@config.manager', '@config.factory', '@string_translation']

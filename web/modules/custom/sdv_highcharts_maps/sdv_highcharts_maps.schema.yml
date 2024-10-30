@@ -1,0 +1,30 @@
+field.widget.settings.map_item:
+  type: mapping
+  label: 'MapItem widget widget settings'
+  mapping:
+    size:
+      type: integer
+      label: 'Size'
+    placeholder:
+      type: textfield
+      label: 'Placeholder'
+field.widget.settings.map_widget:
+  type: mapping
+  label: 'Map widget widget settings'
+  mapping:
+    size:
+      type: integer
+      label: 'Size'
+    placeholder:
+      type: textfield
+      label: 'Placeholder'
+field.widget.settings.highcharts_map_widget:
+  type: mapping
+  label: 'Highcharts map widget widget settings'
+  mapping:
+    size:
+      type: integer
+      label: 'Size'
+    placeholder:
+      type: textfield
+      label: 'Placeholder'

@@ -1,0 +1,24 @@
+id: taxonomy_term_blog_type
+migration_tags:
+  - dummy
+  - taxonomy
+label: 'Taxonomy term: Blog type'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      name: Essay
+    -
+      name: Manifest
+    -
+      name: Epistle
+  ids:
+    name:
+      type: string
+  constants:
+    vocabulary: blog_type
+process:
+  name: name
+  vid: constants/vocabulary
+destination:
+  plugin: 'entity:taxonomy_term'

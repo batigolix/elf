@@ -1,0 +1,39 @@
+_meta:
+  version: '1.0'
+  entity_type: user
+  uuid: 641fcdcc-6c06-497a-b633-d86cfb156201
+  default_langcode: en
+  depends:
+    a3cc9d75-5948-44c0-b54e-c8168b860754: file
+default:
+  preferred_langcode:
+    -
+      value: en
+  name:
+    -
+      value: gudricrep
+  mail:
+    -
+      value: gudricrep@example.com
+  timezone:
+    -
+      value: UTC
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1643881359
+  access:
+    -
+      value: 0
+  login:
+    -
+      value: 0
+  user_picture:
+    -
+      entity: a3cc9d75-5948-44c0-b54e-c8168b860754
+      alt: 'Abluo ex probo sit tamen typicus.'
+      title: 'Eros iriure nibh sed tum valde.'
+      width: 297
+      height: 420

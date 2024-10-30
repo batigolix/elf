@@ -1,0 +1,55 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node_contact
+migration_tags:
+  - node
+  - dummy
+label: 'Node: contact'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: NC01
+      title: "Grace 'O Mally"
+      teaser: Stigma at the universe was the resistance of voyage, controlled to a cold species.
+      user: jane@finalist.nl
+      image: person-5.jpg
+      email: graceomalley@finalist.nl
+      branch: 'Assimilation'
+      function: Assistant lieutenant commander
+      phone: "+31061234567890"
+  ids:
+    id:
+      type: string
+process:
+  title: title
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: migration_lookup
+    migration: user
+    source: user
+  field_image:
+    plugin: migration_lookup
+    migration: media_image
+    source: image
+  field_email: email
+  field_function: function
+  field_phone: phone
+  field_branch:
+    plugin: migration_lookup
+    migration:
+      - taxonomy_term_branch
+    no_stub: true
+    source: branch
+destination:
+  plugin: 'entity:node'
+  default_bundle: 'contact'
+migration_dependencies:
+  required:
+    - user
+    - media_image
+    - taxonomy_term_branch
+    - taxonomy_term_service

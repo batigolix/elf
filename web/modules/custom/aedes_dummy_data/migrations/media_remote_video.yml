@@ -1,0 +1,35 @@
+id: media_remote_video
+migration_tags:
+  - media
+  - dummy
+label: "Media: Remote video"
+source:
+  plugin: embedded_data
+  data_rows:
+    - uri: https://youtu.be/FODVMA-3eYw
+      name: Patiently examine a ship
+      alias: /media-1
+      subject: Nanomachine
+    - uri: https://www.youtube.com/watch?v=K418swtFnik
+      name: An evasive collective
+      alias: /media-2
+      subject: Earth
+  ids:
+    uri:
+      type: string
+process:
+  name: name
+  field_media_oembed_video: uri
+  field_thema_onderwerp:
+    plugin: migration_lookup
+    migration: taxonomy_term_onderwerpen
+    source: subject
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
+destination:
+  plugin: 'entity:media'
+  default_bundle: remote_video
+migration_dependencies:
+  required: {}

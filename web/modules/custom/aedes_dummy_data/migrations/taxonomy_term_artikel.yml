@@ -1,0 +1,24 @@
+id: taxonomy_term_artikel
+migration_tags:
+  - dummy
+  - taxonomy
+label: 'Taxonomy term: Artikel'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      name: Essay
+    -
+      name: Manifest
+    -
+      name: Epistle
+  ids:
+    name:
+      type: string
+  constants:
+    vocabulary: artikel
+process:
+  name: name
+  vid: constants/vocabulary
+destination:
+  plugin: 'entity:taxonomy_term'

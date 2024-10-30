@@ -1,0 +1,6 @@
+dumdum.settings_form:
+  title: dumdum
+  description: Configure dumdum.
+  parent: system.admin_config_system
+  route_name: dumdum.settings_form
+  weight: 10

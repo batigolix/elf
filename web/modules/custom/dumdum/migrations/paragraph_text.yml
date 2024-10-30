@@ -1,0 +1,26 @@
+id: paragraph_text
+label: "Paragraph - text"
+migration_tags:
+  - dumdum
+  - paragraph
+source:
+  plugin: csv
+  path: modules/custom/dumdum/data/paragraph_text.csv
+  ids: [id]
+  constants:
+    path_prefix: "modules/custom/dumdum/files/"
+process:
+  field_title: short_text
+  body_value:
+    - plugin: concat
+      source:
+        - constants/path_prefix
+        - file
+    - plugin: file_content
+  'field_body/value': "@body_value"
+  'field_body/format':
+    plugin: default_value
+    default_value: basic_html
+destination:
+  plugin: entity:paragraph
+  default_bundle: text

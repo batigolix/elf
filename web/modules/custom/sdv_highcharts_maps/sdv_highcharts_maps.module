@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Contains sdv_highcharts_maps.module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function sdv_highcharts_maps_theme() {
+  return [
+    'map' => [
+      'render element' => 'children',
+    ],
+  ];
+}

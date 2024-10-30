@@ -1,0 +1,61 @@
+id: block_contents
+label: Block content
+migration_tags: dummy
+source:
+  plugin: embedded_data
+  data_rows:
+    - id: dummy_mission
+      name: Our mission
+      body: |
+        <p>Draught parrel Arr squiffy gangplank hulk fire ship coxswain lanyard 
+        aft. Man-of-war squiffy nipper line ballast brig hail-shot Privateer 
+        topmast draught.</p>
+        <p>Buccaneer run a shot across the bow coxswain mizzen 
+        draught hearties chase boom provost jolly boat. Capstan yawl poop deck
+        parrel topsail Sink me case shot ahoy hornswaggle Sea Legs.</p>
+      region: footer_first
+    - id: dummy_booty
+      name: Our booty
+      body: |
+        <p>Scallywag hands coxswain salmagundi jolly boat long boat Barbary Coast 
+        chandler bucko matey.</p>
+        <p>Buccaneer run a shot across the bow coxswain mizzen 
+        draught hearties chase boom provost jolly boat. Capstan yawl poop deck
+        parrel topsail Sink me case shot ahoy hornswaggle Sea Legs.</p>
+      region: footer_second
+    - id: dummy_yoyo
+      name: Yo yo and a bottle of Grappa
+      body: |
+        <p>Wench boom nipper Shiver me timbers fluke bilged on her anchor bilge 
+        lateen sail gunwalls belaying pin.</p>
+        <p>Buccaneer run a shot across the bow coxswain mizzen 
+        draught hearties chase boom provost jolly boat. Capstan yawl poop deck
+        parrel topsail Sink me case shot ahoy hornswaggle Sea Legs.</p>
+      region: footer_third
+    - id: dummy_arrr
+      name: Arrr bout us
+      body: |
+        <p>Wench boom nipper Shiver me timbers fluke bilged on her anchor bilge 
+        lateen sail gunwalls belaying pin.</p>
+        <p>Buccaneer run a shot across the bow coxswain mizzen 
+        draught hearties chase boom provost jolly boat. Capstan yawl poop deck
+        parrel topsail Sink me case shot ahoy hornswaggle Sea Legs.</p> 
+      region: footer_fouth
+
+  ids:
+    id:
+      type: string
+process:
+  info: id
+  field_title: name
+  'body/value': body
+  'body/format':
+    plugin: default_value
+    default_value: basic_html
+destination:
+  plugin: entity:block_content
+  default_bundle: basic
+  no_stub: true
+migration_dependencies:
+  required: {  }
+  optional: {  }

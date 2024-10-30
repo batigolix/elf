@@ -1,0 +1,24 @@
+id: taxonomy_term_theme
+migration_tags:
+  - dummy
+  - taxonomy
+label: 'Taxonomy term: Theme'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      name: Always lower a phenomenan
+    -
+      name: Turbulence, ionic cannon, and x-ray vision
+    -
+      name: Technically unite a parasite
+  ids:
+    name:
+      type: string
+  constants:
+    vocabulary: theme
+process:
+  name: name
+  vid: constants/vocabulary
+destination:
+  plugin: 'entity:taxonomy_term'

@@ -1,0 +1,121 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node_activiteit
+migration_tags:
+  - node
+  - dummy
+label: 'Node: activiteit'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      title: The kahless views moon like a strange sensor
+      teaser: Pressure at the solar sphere was the mankind of sonic shower, influenced to a reliable particle
+      location: Wobble
+      image: cme-erupts-on-sun.jpg
+      access: public
+      alias: /event-1
+      state: published
+      subject: Nanomachine
+      date: '05-05-2026 00:00:00'
+    -
+      title: The queen dies mineral like an ancient alien
+      teaser: Mankind at the center was the faith of friendship, fighted to a most unusual particle
+      location: Starlight travel
+      image: ic5332.jpg
+      access: public
+      alias: /event-2
+      state: published
+      subject: Nanomachine
+      date: '06-06-2026 00:00:00'
+    -
+      title: Moons wobble with friendship at the lunar alpha quadrant
+      teaser: Wind at the radiation dome was the nuclear flux of alignment, contacted to a conscious sonic shower
+      location: Starlight travel
+      image: neutron-star-illustrated.jpg
+      access: public
+      alias: /event-2
+      state: published
+      subject: Devastation
+      date: '07-07-2026 00:00:00'
+  ids:
+    title:
+      type: string
+  constants:
+    user: janet@finalist.nl
+    time: '23:59:00'
+    state: published
+process:
+  title: title
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: migration_lookup
+    migration: user
+    source: constants/user
+  field_startdatum:
+    plugin: format_date
+    from_format: 'd-m-Y H:i:s'
+    to_format: 'Y-m-d\TH:i:s'
+    timezone: 'UTC'
+    #    from_timezone: 'Europe/Amsterdam'
+    #    to_timezone: 'UTC'
+    source: date
+  field_endtime:
+    plugin: format_date
+    from_format: 'H:i:s'
+    to_format: 'H:i'
+    timezone: 'UTC'
+#    from_timezone: 'Europe/Amsterdam'
+#    to_timezone: 'UTC'
+    source: constants/time
+  'field_teaser/value': teaser
+  'field_teaser/format':
+    plugin: default_value
+    default_value: 'basic_html'
+#  field_locatie: location
+  field_target_audience: access
+  field_media_image:
+    plugin: migration_lookup
+    migration: media_image
+    source: image
+  field_thema_onderwerp:
+    plugin: migration_lookup
+    migration: taxonomy_term_onderwerpen
+    source: subject
+  field_procurios_id:
+    plugin: default_value
+    default_value: 0
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
+  moderation_state: constants/state
+  #  field_procurios_sign_in_link
+  #  field_procurios_sign_out_link
+  #  body
+  #  field_content
+  #  field_einddatum
+  #  field_endtime
+  #  field_organised_by
+  #  field_header_image
+  #  field_costs
+  #  field_kosten
+  #  field_locatie
+  #  field_meta_tags
+  #  field_pe_points_decimal
+  #  field_procurios_id
+  #  field_yoast_seo
+  #  field_social_image
+  #  field_teaser
+  #  field_send_alert
+  #  field_search_allowed
+destination:
+  plugin: 'entity:node'
+  default_bundle: 'activiteit'
+migration_dependencies:
+  required:
+    - user
+    - media_image
