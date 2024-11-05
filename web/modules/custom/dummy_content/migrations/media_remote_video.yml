@@ -1,0 +1,30 @@
+id: media_remote_video
+migration_tags:
+  - media
+  - demo
+label: "Media: Remote video"
+source:
+  plugin: embedded_data
+  data_rows:
+    - uri: https://youtu.be/FODVMA-3eYw
+      name: Highcharts video
+    - uri: https://www.youtube.com/watch?v=K418swtFnik
+      name: Markdown video
+  ids:
+    uri:
+      type: string
+  constants:
+    user: jim@finalist.nl
+process:
+  name: name
+  field_media_oembed_video: uri
+  uid:
+    plugin: migration_lookup
+    migration: user
+    source: constants/user
+destination:
+  plugin: 'entity:media'
+  default_bundle: remote_video
+migration_dependencies:
+  required:
+    - user
