@@ -1,0 +1,123 @@
+# Directories.
+/bin/
+/vendor/
+
+# Drupal folders.
+/web/core/
+/web/modules/contrib/
+/web/profiles/contrib/
+/web/themes/contrib/
+/web/sites/default/files/
+
+# Custom finalist packages.
+/web/modules/finalist-contrib/
+/web/themes/finalist-contrib/
+
+# Drupal files.
+/web/.ht.router.php
+/web/.eslintignore
+/web/web.config
+/web/.editorconfig
+/web/autoload.php
+/web/.eslintrc.json
+/web/index.php
+/web/.gitattributes
+/web/update.php
+/web/.csslintrc
+# But keep possibly customised htaccess.
+!/web/.htaccess
+/web/sites/default/default.settings.php
+# We keep the general settings.php git.
+!/web/sites/default/settings.php
+/web/sites/example.settings.local.php
+/web/sites/example.sites.php
+/web/libraries/
+
+# Development files.
+/web/sites/default/settings.local.php
+/web/sites/default/local.services.yml
+
+# Ignore Development files, including IDE files.
+.idea
+*.css.map
+web/themes/custom/*/node_modules
+web/themes/custom/*/static/css/maps
+
+# ignore text files.
+*.txt
+!/solr/**/*.txt
+# keep robots.txt
+!/web/robots.txt
+!/.ddev/solr/**/*.txt
+
+# Ignore file types.
+*.tar
+*.gz
+*.zip
+*.sql
+*.avi
+.sass-cache
+
+# Ignore OS generated files.
+*.DS_Store
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.dbi
+Thumbs.db
+local.config.json
+npm-debug.log
+tmp
+sites/all/libraries/ace
+*.unison.tmp
+.directory
+
+# Ignore test data
+/.csslintrc
+/.eslintignore
+/.eslintrc.json
+/.ht.router.php
+/.htaccess
+/autoload.php
+/example.gitignore
+/index.php
+/update.php
+/web.config
+
+# Test stuff
+tests/backstop/backstop_data/*
+!tests/backstop/backstop_data/engine_scripts
+tests/behat/reports
+tests/behat/screenshots
+tests/behat/results
+web/sites/simpletest/
+.phpunit.result.cache
+tests/pa11y/output/*.json
+tests/pa11y/screenCaptures/*.png
+jmeter.log
+tests/jmeter/results
+tests/sitespeed.io/sitespeed-result
+tests/behat/chromedriver
+tests/taurus/results
+!tests/phpunit/dwo.sql
+/tests/sitespeed.io/report/
+/web/sites/development.services.yml
+
+# Storybook
+/node_modules
+node_modules
+/yarn.lock
+.storybook/preview.js
+/.storybook/preview.js
+!/.storybook/preview.js
+/.cochenerie/
+/web/modules/custom/aedes_dummy_data/
+/web/modules/custom/dumdum/
+/web/modules/custom/dummystuff/
+/web/modules/custom/file_content/
+/web/modules/custom/finalist_dummy_data/
+/web/modules/custom/moredummystuff/
+/web/modules/custom/sdv_highcharts_maps/
