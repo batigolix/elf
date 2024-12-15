@@ -1,0 +1,9 @@
+uuid: deaf204d-640b-4352-a507-77d553fbd45f
+langcode: en
+status: true
+dependencies: {  }
+name: skills
+vid: skills
+description: null
+weight: 0
+new_revision: false

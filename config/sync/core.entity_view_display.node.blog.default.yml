@@ -1,24 +1,20 @@
-uuid: 42e5d3f3-1e21-4535-8771-f81c722a30b3
+uuid: 8410eb74-60f7-4f55-9d38-0bc97366301e
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.article.body
-    - field.field.node.article.field_beschrijving
-    - field.field.node.article.field_description
-    - field.field.node.article.field_image
-    - field.field.node.article.field_tags
+    - field.field.node.blog.body
+    - field.field.node.blog.field_image
+    - field.field.node.blog.field_tags
     - image.style.wide
-    - node.type.article
+    - node.type.blog
   module:
     - image
     - text
     - user
-_core:
-  default_config_hash: br6izr-iGEu--JvNbCJNtOBpRnxpFLXfoV5y61U9Nqc
-id: node.article.default
+id: node.blog.default
 targetEntityType: node
-bundle: article
+bundle: blog
 mode: default
 content:
   body:
@@ -26,21 +22,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 0
-    region: content
-  field_beschrijving:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
     weight: 101
-    region: content
-  field_description:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 102
     region: content
   field_image:
     type: image

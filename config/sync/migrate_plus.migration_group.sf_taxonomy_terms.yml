@@ -1,0 +1,10 @@
+uuid: 6dd4add8-41bc-419b-935d-55d89bcd2c41
+langcode: en
+status: true
+dependencies: {  }
+id: sf_taxonomy_terms
+label: sf_taxonomy_terms
+description: ''
+source_type: null
+module: null
+shared_configuration: null

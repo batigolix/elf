@@ -1,0 +1,10 @@
+name: 'Side migration'
+type: module
+description: 'side'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - migrate_devel:migrate_devel
+  - migrate_plus:migrate_plus
+  - migrate_tools:migrate_tools
+  - migrate_drupal:migrate_drupal

@@ -1,0 +1,25 @@
+langcode: en
+status: true
+id: node_article_2
+label: 'Node: article (side)'
+source:
+  plugin: 'content_entity:node'
+  bundle: article
+process:
+  nid: nid
+  field_description: field_beschrijving
+  changed:
+    plugin: sub_process
+    source: changed
+    process:
+      value: value
+      preserve:
+        plugin: default_value
+        default_value: true
+destination:
+  plugin: 'entity:node'
+  default_bundle: article
+  overwrite_properties:
+    - field_description
+    - changed
+migration_dependencies: {}

@@ -84,6 +84,10 @@ source:
     user: jane@finalist.nl
     alt: The girl is tightly evasive
     alias_prefix: '/'
+    string_long: |
+      Malfunction without honor, and we won’t desire an alien.
+      The captain is more transporter now than spacecraft. photonic and never chemical.
+      The crew is more starship now than girl. intelligent and rudely delighted.
 process:
   title: title
   status:
@@ -96,6 +100,7 @@ process:
     plugin: migration_lookup
     migration: user
     source: constants/user
+  field_beschrijving: constants/string_long
   field_image/target_id:
     plugin: migration_lookup
     migration: file

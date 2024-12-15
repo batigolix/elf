@@ -46,17 +46,6 @@ process:
   'link/options':
     - plugin: default_value
       default_value: {}
-#  external: external
-#  weight: weight
-#  expanded: expanded
-#  enabled:
-#    plugin: static_map
-#    source: hidden
-#    map:
-#      0: 1
-#      1: 0
-#    default_value: 1
-#  changed: updated
   parent:
     plugin: menu_link_parent
     source:
