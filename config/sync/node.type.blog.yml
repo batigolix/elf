@@ -1,4 +1,4 @@
-uuid: b8631d83-414a-4043-8c56-7c6a2c0ed069
+uuid: fb887b44-473d-4f24-bf74-9d6f0eec4a1b
 langcode: en
 status: true
 dependencies:
@@ -9,6 +9,8 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
+_core:
+  default_config_hash: Fe3N1uqaAyyKJbVkqT-btXy3t98puW8GCRD822xjl10
 name: Blog
 type: blog
 description: null

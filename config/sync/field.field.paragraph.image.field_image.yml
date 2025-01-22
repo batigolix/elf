@@ -1,22 +1,20 @@
-uuid: 559300a6-a758-40e6-b15d-198f29a1b6fc
+uuid: 1db3311f-bb29-4d79-a22a-5de11683c19d
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_image
-    - node.type.blog
+    - field.storage.paragraph.field_image
+    - paragraphs.paragraphs_type.image
   module:
     - image
-_core:
-  default_config_hash: j0riO_-77ZFWNLtj0iJ31HnohiNjdn8HUL86RueCF-M
-id: node.blog.field_image
+id: paragraph.image.field_image
 field_name: field_image
-entity_type: node
-bundle: blog
+entity_type: paragraph
+bundle: image
 label: Image
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -32,7 +30,7 @@ settings:
   title_field: false
   title_field_required: false
   default_image:
-    uuid: null
+    uuid: ''
     alt: ''
     title: ''
     width: null

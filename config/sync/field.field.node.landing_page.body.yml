@@ -1,18 +1,18 @@
-uuid: bd3e57d8-0e64-4143-9b55-e441f1766161
+uuid: 1fa85a46-1bdf-4c52-8f13-254e64b517e6
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.body
-    - node.type.blog
+    - node.type.landing_page
   module:
     - text
 _core:
-  default_config_hash: 4Wxs1LseZ8JsNwD9uJVIbzZqG35yQXN8Eo1Hub6NMuI
-id: node.blog.body
+  default_config_hash: KHu9I-pR4FnP79crRJ5gVD_1mKGSZcJsdIm9bn64iFg
+id: node.landing_page.body
 field_name: body
 entity_type: node
-bundle: blog
+bundle: landing_page
 label: Body
 description: ''
 required: false

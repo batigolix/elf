@@ -1,29 +1,25 @@
-uuid: f997f268-7fb7-4574-a0e5-2cfd2e647309
+uuid: ff84ad65-5f7e-41fc-a9d6-fbaa9dd4ed3c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.blog.body
-    - field.field.node.blog.field_beschrijving
-    - field.field.node.blog.field_description
-    - field.field.node.blog.field_image
-    - field.field.node.blog.field_tags
-    - image.style.thumbnail
-    - node.type.blog
+    - field.field.node.landing_page.body
+    - field.field.node.landing_page.field_paragraphs
+    - node.type.landing_page
   module:
-    - image
+    - paragraphs
     - path
     - text
 _core:
-  default_config_hash: ewbd6G2uX456-bgwseM2Q-KQG3RkASoyHmTh-XR3oLU
-id: node.blog.default
+  default_config_hash: SfpLhPExzvR0MgFp0Wp7CrmgEnhcqQ-fXIWFhbf4ue0
+id: node.landing_page.default
 targetEntityType: node
-bundle: blog
+bundle: landing_page
 mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 2
+    weight: 31
     region: content
     settings:
       rows: 9
@@ -37,39 +33,23 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_beschrijving:
-    type: string_textarea
+  field_paragraphs:
+    type: paragraphs
     weight: 121
     region: content
     settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_description:
-    type: string_textarea
-    weight: 122
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_image:
-    type: image_image
-    weight: 1
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-  field_tags:
-    type: entity_reference_autocomplete_tags
-    weight: 3
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
     third_party_settings: {  }
   path:
     type: path
@@ -100,7 +80,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: -5
     region: content
     settings:
       size: 60

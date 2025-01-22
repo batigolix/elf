@@ -1,0 +1,48 @@
+langcode: en
+status: true
+id: node_landing_page
+migration_tags:
+  - inside
+label: 'Node: landing page (from page)'
+source:
+  plugin: 'content_entity:node'
+  bundle: 'page'
+process:
+  title: title
+  field_image: field_image
+  field_paragraphs:
+    - plugin: sub_process
+      source: paragraphz
+      process:
+        _linklabel: linklabel
+        tempformat:
+          plugin: default_value
+          default_value: basic_html
+        target_id:
+          plugin: entity_generate
+          source: title
+          entity_type: paragraph
+          bundle: text
+          value_key: field_title
+          bundle_key: type
+          values:
+            'field_body/0/value': body
+            'field_body/0/format': '@tempformat'
+        _revision_id_value:
+          plugin: entity_value
+          source: '@target_id'
+          entity_type: paragraph
+          field_name: revision_id
+        target_revision_id: '@_revision_id_value/0/value'
+
+  body: body
+  field_tags: field_tags
+  created: created
+  'path/pathauto': 'path/pathauto'
+  'path/alias': 'path/alias'
+  field_description: field_description
+destination:
+  plugin: 'entity:node'
+  default_bundle: 'landing_page'
+migration_dependencies:
+  required: {}

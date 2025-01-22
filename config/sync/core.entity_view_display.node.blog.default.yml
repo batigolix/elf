@@ -1,9 +1,11 @@
-uuid: 8410eb74-60f7-4f55-9d38-0bc97366301e
+uuid: 2e2505d8-1e03-43d3-ba0c-96fd496e8ddb
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.node.blog.body
+    - field.field.node.blog.field_beschrijving
+    - field.field.node.blog.field_description
     - field.field.node.blog.field_image
     - field.field.node.blog.field_tags
     - image.style.wide
@@ -12,6 +14,8 @@ dependencies:
     - image
     - text
     - user
+_core:
+  default_config_hash: br6izr-iGEu--JvNbCJNtOBpRnxpFLXfoV5y61U9Nqc
 id: node.blog.default
 targetEntityType: node
 bundle: blog
@@ -22,7 +26,21 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
+  field_beschrijving:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
     weight: 101
+    region: content
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
     region: content
   field_image:
     type: image
