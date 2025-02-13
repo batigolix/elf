@@ -2,21 +2,21 @@ langcode: en
 status: true
 id: node_landing_page
 migration_tags:
-  - inside
-label: 'Node: landing page (from page)'
+  - inside_job
+label: 'Node: landing page - move page node with body field to landing_page node with paragraph'
 source:
+  # content_entity source plugin fetches content from the current website
   plugin: 'content_entity:node'
   bundle: 'page'
 process:
   title: title
-  field_image: field_image
   field_paragraphs:
     - plugin: sub_process
       source:
         - body
-        -
       process:
         target_id:
+          # Using the entity_generate plugin to create a paragraph and reference it in the entity reference revision field.
           plugin: entity_generate
           source: value
           entity_type: paragraph
@@ -32,13 +32,6 @@ process:
           entity_type: paragraph
           field_name: revision_id
         target_revision_id: '@_revision_id_value/0/value'
-
-#  body: body
-#  field_tags: field_tags
-#  created: created
-#  'path/pathauto': 'path/pathauto'
-#  'path/alias': 'path/alias'
-#  field_description: field_description
 destination:
   plugin: 'entity:node'
   default_bundle: 'landing_page'

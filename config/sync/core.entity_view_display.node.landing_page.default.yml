@@ -3,12 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.landing_page.body
     - field.field.node.landing_page.field_paragraphs
     - node.type.landing_page
   module:
     - entity_reference_revisions
-    - text
     - user
 _core:
   default_config_hash: M_Y8L5tfmhx7DR143E05YyZSpvgil6VFvqcfBWykalg
@@ -17,13 +15,6 @@ targetEntityType: node
 bundle: landing_page
 mode: default
 content:
-  body:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 100
-    region: content
   field_paragraphs:
     type: entity_reference_revisions_entity_view
     label: above

@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.article.field_beschrijving
     - field.field.node.article.field_description
     - field.field.node.article.field_image
+    - field.field.node.article.field_media_image
     - field.field.node.article.field_tags
     - image.style.wide
     - node.type.article
@@ -52,6 +53,15 @@ content:
         attribute: eager
     third_party_settings: {  }
     weight: -1
+    region: content
+  field_media_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 103
     region: content
   field_tags:
     type: entity_reference_label

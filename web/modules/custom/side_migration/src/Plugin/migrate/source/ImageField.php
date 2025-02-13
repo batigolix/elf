@@ -31,8 +31,6 @@ class ImageField extends SourcePluginBase {
     $ids = [
       'id' => [
         'type' => 'string',
-//        'unsigned' => FALSE,
-//        'size' => 'big',
       ],
     ];
     return $ids;
@@ -62,7 +60,7 @@ class ImageField extends SourcePluginBase {
   }
 
   /**
-   * Fetches image data from the database.
+   * Fetches image data from the image field table.
    */
   private function fetchItems() {
     $connection = Database::getConnection('default', 'migrate');
@@ -71,22 +69,11 @@ class ImageField extends SourcePluginBase {
     $items = [];
       $query = $connection->select('node__' . $field, 'n_fi');
       $query->fields('n_fi');
-//    $query->addField('n_fi', 'entity_id');
-//    $query->addField('n_fi', 'delta');
-//    $query->addField('n_fi', 'delta');
-//      $query->leftJoin('file_managed', 'fm', 'n_fi.' . $field . '_fid = fm.fid');
-//      $query->leftJoin('field_data_field_file_image_alt_text', 'n_fifiat', 'n_fi.' . $field . '_fid = n_fifiat.entity_id');
-//      $query->leftJoin('field_data_field_file_image_title_text', 'n_fifitt', 'n_fi.' . $field . '_fid = n_fifitt.entity_id');
-//      $query->addField('fm', 'filename');
-//      $query->addField('fm', 'uid');
-//      $query->addField('n_fi', 'field_image_alt', 'alt');
-//      $query->addField('n_fi', 'field_image_title', 'title');
-        $query->condition('n_fi.bundle', $type);
+      $query->condition('n_fi.bundle', $type);
       $results = $query->execute();
       foreach ($results as $record) {
         $items[] = $record;
       }
-
     return $items;
   }
 

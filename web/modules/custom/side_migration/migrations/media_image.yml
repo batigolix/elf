@@ -3,8 +3,9 @@ migration_tags:
   - media
   - image
   - demo
-label: "Media: Image"
+label: "Media: image - Creating media items from image field values"
 source:
+  # Using a custom source plugin that fetches values from the node's image fields.
   plugin: image_field
   field: field_image
   type: article

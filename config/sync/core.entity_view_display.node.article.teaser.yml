@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.article.field_beschrijving
     - field.field.node.article.field_description
     - field.field.node.article.field_image
+    - field.field.node.article.field_media_image
     - field.field.node.article.field_tags
     - image.style.medium
     - node.type.article
@@ -55,3 +56,4 @@ content:
 hidden:
   field_beschrijving: true
   field_description: true
+  field_media_image: true
