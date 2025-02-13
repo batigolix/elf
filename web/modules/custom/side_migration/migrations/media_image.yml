@@ -1,0 +1,24 @@
+id: media_image
+migration_tags:
+  - media
+  - image
+  - demo
+label: "Media: Image"
+source:
+  plugin: image_field
+  field: field_image
+  type: article
+  ids:
+    id:
+      type: string
+process:
+  name: alt
+  field_media_image/target_id: target_id
+  field_media_image/alt: alt
+  field_media_image/title: title
+destination:
+  plugin: 'entity:media'
+  default_bundle: image
+migration_dependencies:
+  required:
+    - file

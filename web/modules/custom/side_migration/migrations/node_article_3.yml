@@ -1,7 +1,7 @@
 langcode: en
 status: true
-id: node_article_2
-label: 'Node: Article - Move value to other field'
+id: node_article_3
+label: 'Node: Article - Move image field to media reference'
 source:
   plugin: 'content_entity:node'
   bundle: article
@@ -11,8 +11,15 @@ process:
   nid: nid
 
   # Assign the value of the old field to the new field.
-  field_description: field_beschrijving
-
+  field_media_image:
+    plugin: sub_process
+    source: field_image
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration:
+          - media_image
+        source: target_id
   # Keep the changed date to the original value
   changed:
     plugin: sub_process
@@ -25,7 +32,9 @@ process:
 destination:
   plugin: 'entity:node'
   default_bundle: article
+
+  # overwrite_properties provided by the entity:node destination plugin. List fields that you want to overwrite
   overwrite_properties:
-    - field_description
+    - field_media_image
     - changed
 migration_dependencies: {}

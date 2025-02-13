@@ -12,22 +12,20 @@ process:
   field_image: field_image
   field_paragraphs:
     - plugin: sub_process
-      source: paragraphz
+      source:
+        - body
+        -
       process:
-        _linklabel: linklabel
-        tempformat:
-          plugin: default_value
-          default_value: basic_html
         target_id:
           plugin: entity_generate
-          source: title
+          source: value
           entity_type: paragraph
           bundle: text
-          value_key: field_title
+          value_key: field_body
           bundle_key: type
           values:
-            'field_body/0/value': body
-            'field_body/0/format': '@tempformat'
+            'field_body/0/value': value
+            'field_body/0/format': format
         _revision_id_value:
           plugin: entity_value
           source: '@target_id'
@@ -35,12 +33,12 @@ process:
           field_name: revision_id
         target_revision_id: '@_revision_id_value/0/value'
 
-  body: body
-  field_tags: field_tags
-  created: created
-  'path/pathauto': 'path/pathauto'
-  'path/alias': 'path/alias'
-  field_description: field_description
+#  body: body
+#  field_tags: field_tags
+#  created: created
+#  'path/pathauto': 'path/pathauto'
+#  'path/alias': 'path/alias'
+#  field_description: field_description
 destination:
   plugin: 'entity:node'
   default_bundle: 'landing_page'
