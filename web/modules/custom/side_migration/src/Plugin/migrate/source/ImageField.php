@@ -63,7 +63,7 @@ class ImageField extends SourcePluginBase {
    * Fetches image data from the image field table.
    */
   private function fetchItems() {
-    $connection = Database::getConnection('default', 'migrate');
+    $connection = Database::getConnection();
     $field = $this->configuration['field'];
     $type = $this->configuration['type'];
     $items = [];
