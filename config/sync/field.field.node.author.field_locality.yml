@@ -1,0 +1,19 @@
+uuid: ca5f7779-8bf1-46c6-aae8-5b5c1c89b241
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_locality
+    - node.type.author
+id: node.author.field_locality
+field_name: field_locality
+entity_type: node
+bundle: author
+label: Locality
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
