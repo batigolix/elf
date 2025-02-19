@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.blog.body
-    - field.field.node.blog.field_beschrijving
     - field.field.node.blog.field_description
     - field.field.node.blog.field_image
     - field.field.node.blog.field_tags
@@ -27,13 +26,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
-    region: content
-  field_beschrijving:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 101
     region: content
   field_description:
     type: basic_string

@@ -1,15 +1,15 @@
-uuid: d2abd477-af6e-49b5-b232-3c094c367add
+uuid: cf5b01f4-f035-46b0-85fa-6a166ec06441
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_beschrijving
-    - node.type.blog
-id: node.blog.field_beschrijving
-field_name: field_beschrijving
+    - field.storage.node.field_samenvatting
+    - node.type.page
+id: node.page.field_samenvatting
+field_name: field_samenvatting
 entity_type: node
-bundle: blog
-label: beschrijving
+bundle: page
+label: Samenvatting
 description: ''
 required: false
 translatable: false

@@ -5,8 +5,14 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.body
+    - field.field.node.page.field_image
+    - field.field.node.page.field_media_image
+    - field.field.node.page.field_samenvatting
+    - field.field.node.page.field_summary
+    - image.style.medium
     - node.type.page
   module:
+    - image
     - text
     - user
 _core:
@@ -24,7 +30,21 @@ content:
     third_party_settings: {  }
     weight: 100
     region: content
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: content
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: -1
+    region: content
   links:
     weight: 101
     region: content
-hidden: {  }
+hidden:
+  field_media_image: true
+  field_samenvatting: true
+  field_summary: true

@@ -44,4 +44,5 @@ destination:
   plugin: 'entity:node'
   default_bundle: author
 #  @todo add depend on media image
-migration_dependencies: {}
+migration_dependencies:
+  - media_image_from_user_picture

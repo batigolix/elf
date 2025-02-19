@@ -10,15 +10,12 @@ source:
 process:
   title: title
   status: status
-  sticky: sticky
-  uid: uid
   field_image: field_image
   body: body
   field_tags: field_tags
   created: created
   'path/pathauto': 'path/pathauto'
   'path/alias': 'path/alias'
-  field_description: field_description
 destination:
   plugin: 'entity:node'
   default_bundle: 'article'

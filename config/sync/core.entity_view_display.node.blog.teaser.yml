@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.blog.body
-    - field.field.node.blog.field_beschrijving
     - field.field.node.blog.field_description
     - field.field.node.blog.field_image
     - field.field.node.blog.field_tags
@@ -53,5 +52,4 @@ content:
     weight: 100
     region: content
 hidden:
-  field_beschrijving: true
   field_description: true

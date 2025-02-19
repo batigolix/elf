@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.blog.body
-    - field.field.node.blog.field_beschrijving
     - field.field.node.blog.field_description
     - field.field.node.blog.field_image
     - field.field.node.blog.field_tags
@@ -36,14 +35,6 @@ content:
     weight: 10
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_beschrijving:
-    type: string_textarea
-    weight: 121
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
     third_party_settings: {  }
   field_description:
     type: string_textarea

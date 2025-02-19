@@ -7,7 +7,7 @@ source:
   plugin: image_field
   table_prefix: node
   field: field_image
-  bundle: article
+  bundle: page
   ids:
     id:
       type: string

@@ -1,19 +1,19 @@
 langcode: en
 status: true
-id: node_article_2
+id: node_page
 migration_tags:
   - inside_job
-label: 'Node: Article - Move value to other field'
+label: 'Node: Page - Move value from one field to another'
 source:
   plugin: 'content_entity:node'
-  bundle: article
+  bundle: page
 process:
 
   # Uses the same NID so that it can overwrite the current node.
   nid: nid
 
   # Assign the value of the old field to the new field.
-  field_description: field_beschrijving
+  field_summary: field_samenvatting
 
   # Keep the changed date to the original value
   changed:
@@ -26,8 +26,8 @@ process:
         default_value: true
 destination:
   plugin: 'entity:node'
-  default_bundle: article
+  default_bundle: page
   overwrite_properties:
-    - field_description
+    - field_summary
     - changed
 migration_dependencies: {}

@@ -1,10 +1,10 @@
 langcode: en
 status: true
-id: node_article_3
-label: 'Node: Article - Move image field to media reference'
+id: node_page_2
+label: 'Node: Page - Move image field to media reference'
 source:
   plugin: 'content_entity:node'
-  bundle: article
+  bundle: page
 process:
 
   # Uses the same NID so that it can overwrite the current node.
@@ -31,10 +31,11 @@ process:
         default_value: true
 destination:
   plugin: 'entity:node'
-  default_bundle: article
+  default_bundle: page
 
   # overwrite_properties provided by the entity:node destination plugin. List fields that you want to overwrite
   overwrite_properties:
     - field_media_image
     - changed
-migration_dependencies: {}
+migration_dependencies:
+  - media_image_from_node_image

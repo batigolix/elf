@@ -1,11 +1,11 @@
-uuid: 99109aa2-4cc6-4172-ad25-64af06522d47
+uuid: 79d4b04f-73dd-4b1b-9bf1-47fe0e362252
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_beschrijving
-field_name: field_beschrijving
+id: node.field_summary
+field_name: field_summary
 entity_type: node
 type: string_long
 settings:

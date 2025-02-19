@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.rss
     - field.field.node.blog.body
-    - field.field.node.blog.field_beschrijving
     - field.field.node.blog.field_description
     - field.field.node.blog.field_image
     - field.field.node.blog.field_tags
@@ -24,7 +23,6 @@ content:
     region: content
 hidden:
   body: true
-  field_beschrijving: true
   field_description: true
   field_image: true
   field_tags: true
