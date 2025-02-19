@@ -18,7 +18,7 @@ process:
       target_id:
         plugin: migration_lookup
         migration:
-          - media_image
+          - media_image_from_node_image
         source: target_id
   # Keep the changed date to the original value
   changed:

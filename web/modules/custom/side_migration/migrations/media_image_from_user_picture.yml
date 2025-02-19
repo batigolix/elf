@@ -1,14 +1,13 @@
-id: media_image
+id: media_image_from_user_picture
 migration_tags:
-  - media
-  - image
-  - demo
-label: "Media: image - Creating media items from image field values"
+  - inside_job
+label: "Media: image - Creating media items from user picture values"
 source:
-  # Using a custom source plugin that fetches values from the node's image fields.
+  # Using a custom source plugin that fetches values from the user's picture field.
   plugin: image_field
-  field: field_image
-  type: article
+  table_prefix: user
+  field: user_picture
+  bundle: user
   ids:
     id:
       type: string
@@ -21,5 +20,4 @@ destination:
   plugin: 'entity:media'
   default_bundle: image
 migration_dependencies:
-  required:
-    - file
+  required: {}

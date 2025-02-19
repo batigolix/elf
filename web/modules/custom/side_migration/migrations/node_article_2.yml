@@ -1,6 +1,8 @@
 langcode: en
 status: true
 id: node_article_2
+migration_tags:
+  - inside_job
 label: 'Node: Article - Move value to other field'
 source:
   plugin: 'content_entity:node'

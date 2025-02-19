@@ -2,7 +2,7 @@ langcode: en
 status: true
 id: node_article
 migration_tags:
-  - inside
+  - inside_job
 label: 'Node: article (from blog)'
 source:
   plugin: 'content_entity:node'

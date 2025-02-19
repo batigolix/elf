@@ -17,9 +17,9 @@ use Drupal\migrate\Plugin\migrate\source\SourcePluginBase;
  * @code
  * source:
  *   plugin: image_field
- *   field:
- *     - field_image
- *   type: article
+ *   table:
+ *     - node__field_image
+ *   bundle: article
  * @endcode
  */
 class ImageField extends SourcePluginBase {
@@ -64,12 +64,15 @@ class ImageField extends SourcePluginBase {
    */
   private function fetchItems() {
     $connection = Database::getConnection();
+    $table_prefix = $this->configuration['table_prefix'];
     $field = $this->configuration['field'];
-    $type = $this->configuration['type'];
+    $bundle = $this->configuration['bundle'];
     $items = [];
-      $query = $connection->select('node__' . $field, 'n_fi');
-      $query->fields('n_fi');
-      $query->condition('n_fi.bundle', $type);
+    $query = $connection->select("{$table_prefix}__{$field}", 'image_table');
+    $query->addField('image_table', "{$field}_target_id", 'target_id');
+    $query->addField('image_table', "{$field}_alt", 'alt');
+    $query->addField('image_table', "{$field}_title", 'title');
+    $query->condition('image_table.bundle', $bundle);
       $results = $query->execute();
       foreach ($results as $record) {
         $items[] = $record;
@@ -88,12 +91,12 @@ class ImageField extends SourcePluginBase {
     $rows = [];
     if ($items) {
       foreach ($items as $item) {
-        $id= $item->field_image_target_id;
+        $id= $item->target_id;
         $rows[$id] = [
           'id' =>$id,
           'target_id'=>$id,
-          'alt'=>$item->field_image_alt,
-          'title'=>$item->field_image_title
+          'alt'=>$item->alt,
+          'title'=>$item->title
         ];
       }
     }

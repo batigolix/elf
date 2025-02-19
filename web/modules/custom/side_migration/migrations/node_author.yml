@@ -1,0 +1,47 @@
+langcode: en
+status: true
+id: node_author
+migration_tags:
+  - inside_job
+label: 'Node: author - Move user entity to node entity'
+source:
+  plugin: 'content_entity:user'
+#  @todo figure out if bundle needed
+#  bundle: user
+process:
+  title: name
+  uid: uid
+  field_media_image:
+    plugin: sub_process
+    source: user_picture
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration:
+          - media_image_from_user_picture
+        source: target_id
+  field_first_name: field_first_name
+  field_last_name: field_last_name
+  created: created
+  'path/pathauto': 'path/pathauto'
+  'path/alias': 'path/alias'
+  field_email_address: mail
+#  field_description: field_description
+#
+#
+#  # Assign the value of the old field to the new field.
+#  field_media_image:
+#    plugin: sub_process
+#    source: field_image
+#    process:
+#      target_id:
+#        plugin: migration_lookup
+#        migration:
+#          - media_image
+#        source: target_id
+  # Keep the changed date to the original value
+destination:
+  plugin: 'entity:node'
+  default_bundle: author
+#  @todo add depend on media image
+migration_dependencies: {}

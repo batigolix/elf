@@ -1,0 +1,24 @@
+id: media_image_from_node_image
+migration_tags:
+  - inside_job
+label: "Media: image - Creating media items from image field values"
+source:
+  # Using a custom source plugin that fetches values from the node's image fields.
+  plugin: image_field
+  table_prefix: node
+  field: field_image
+  bundle: article
+  ids:
+    id:
+      type: string
+process:
+  name: alt
+  field_media_image/target_id: target_id
+  field_media_image/alt: alt
+  field_media_image/title: title
+destination:
+  plugin: 'entity:media'
+  default_bundle: image
+migration_dependencies:
+  required:
+    - file
