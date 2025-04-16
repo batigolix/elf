@@ -1,0 +1,47 @@
+langcode: en
+status: true
+id: dum_user
+label: User
+migration_tags:
+  - dummy_content
+source:
+  plugin: embedded_data
+  data_rows:
+    - email: jim@finalist.nl
+      first: Jim
+      role: administrator
+      file: person-1.jpg
+    - email: jane@finalist.nl
+      first: Jane
+      role: content_editor
+      file: person-2.jpg
+    - email: jack@finalist.nl
+      first: Jack
+      file: person-3.jpg
+  ids:
+    email:
+      type: string
+  constants:
+    last: 'Smith'
+    city: 'Utrecht'
+destination:
+  plugin: entity:user
+  md5_passwords: true
+process:
+  mail: email
+  init: email
+  name: email
+  roles: role
+  user_picture:
+    plugin: migration_lookup
+    migration: dum_file
+    source: file
+  status:
+    plugin: default_value
+    default_value: 1
+  field_first_name: first
+  field_last_name: constants/last
+  field_city: constants/city
+migration_dependencies:
+  required:
+    - dum_file

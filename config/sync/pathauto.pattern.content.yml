@@ -1,0 +1,26 @@
+uuid: b0e49086-fbba-46fd-939f-affe4f7a6828
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: content
+label: Content
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  dae29543-1551-469d-aed6-c19cf56fbdad:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: dae29543-1551-469d-aed6-c19cf56fbdad
+    context_mapping:
+      node: node
+    bundles:
+      article: article
+      author: author
+      blog: blog
+      landing_page: landing_page
+      page: page
+selection_logic: and
+weight: -5
+relationships: {  }

@@ -30,4 +30,6 @@ destination:
   overwrite_properties:
     - field_summary
     - changed
-migration_dependencies: {}
+migration_dependencies:
+  required: {}
+

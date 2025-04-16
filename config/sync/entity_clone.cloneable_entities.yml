@@ -36,3 +36,6 @@ cloneable_entities:
   - entity_view_mode
   - paragraphs_type
   - paragraph
+  - pathauto_pattern
+  - language_content_settings
+  - configurable_language

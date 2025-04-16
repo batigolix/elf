@@ -48,3 +48,4 @@ hidden:
   field_media_image: true
   field_samenvatting: true
   field_summary: true
+  langcode: true

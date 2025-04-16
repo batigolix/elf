@@ -1,0 +1,71 @@
+langcode: en
+status: true
+id: dum_node_blog
+migration_tags:
+  - dummy_content
+label: 'Node: blog'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      title: The space suit trembles love like a ship-wide alien
+      body: |
+        This peace has only been disrupted by a distant space suit.
+        Plasma at the homeworld that is when collective vogons harvest.
+        never handle a spacecraft.
+        Malfunction without devastation, and we won’t assimilate an astronaut.
+        Courage at the colony was the wind of history, avoided to a devastated hur'q.
+        All the galaxies will be lost in beauties like powerdrains in collision courses
+      image: cme-erupts-on-sun.jpg
+      tags:
+        - Transporter
+        - Virtually united
+        - Lieutenant commander
+      date: '01-11-2025'
+  ids:
+    title:
+      type: string
+  constants:
+    user: jane@finalist.nl
+    alt: Where is the senior tribble?
+    alias_prefix: '/'
+    string_long: |
+      Malfunction without honor, and we won’t desire an alien.
+      The captain is more transporter now than spacecraft. photonic and never chemical.
+      The crew is more starship now than girl. intelligent and rudely delighted.
+process:
+  title: title
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: migration_lookup
+    migration: dum_user
+    source: constants/user
+#  field_beschrijving: constants/string_long
+  field_image/target_id:
+    plugin: migration_lookup
+    migration: dum_file
+    source: image
+  field_image/alt: constants/alt
+  'body/value': body
+  'body/format':
+    plugin: default_value
+    default_value: basic_html
+  field_tags:
+    - plugin: migration_lookup
+      migration: dum_taxonomy_term_tags
+      source: tags
+  created:
+    plugin: format_date
+    from_format: 'd-m-Y'
+    to_format: 'U'
+    source: date
+destination:
+  plugin: 'entity:node'
+  default_bundle: 'blog'
+migration_dependencies:
+  required:
+    - dum_taxonomy_term_tags
+    - dum_file
+    - dum_user

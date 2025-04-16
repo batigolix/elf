@@ -1,0 +1,18 @@
+uuid: f1962516-9cf2-4527-9a19-46a961a34c76
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.author
+id: node.author.created
+field_name: created
+entity_type: node
+bundle: author
+label: 'Authored on'
+description: 'The date and time that the content was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

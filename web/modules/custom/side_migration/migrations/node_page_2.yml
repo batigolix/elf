@@ -2,6 +2,8 @@ langcode: en
 status: true
 id: node_page_2
 label: 'Node: Page - Move image field to media reference'
+migration_tags:
+  - inside_job
 source:
   plugin: 'content_entity:node'
   bundle: page
@@ -20,22 +22,13 @@ process:
         migration:
           - media_image_from_node_image
         source: target_id
-  # Keep the changed date to the original value
-  changed:
-    plugin: sub_process
-    source: changed
-    process:
-      value: value
-      preserve:
-        plugin: default_value
-        default_value: true
+
 destination:
   plugin: 'entity:node'
   default_bundle: page
-
   # overwrite_properties provided by the entity:node destination plugin. List fields that you want to overwrite
   overwrite_properties:
     - field_media_image
-    - changed
 migration_dependencies:
-  - media_image_from_node_image
+  required:
+    - media_image_from_node_image

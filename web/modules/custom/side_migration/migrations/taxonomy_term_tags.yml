@@ -1,5 +1,7 @@
 id: taxonomy_term_tags
 label: 'Taxonomy term: Tags'
+migration_tags:
+  - inside_job
 source:
   plugin: embedded_data
   data_rows:

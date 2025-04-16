@@ -1,0 +1,41 @@
+id: dum_media_image
+label: "Media: Image"
+migration_tags:
+  - dummy_content
+source:
+  plugin: embedded_data
+  data_rows:
+    - file: bat-shadow.png
+      title: Malfunction without rumour, and we won’t manifest a transporter.
+    - file: cartwheel-galaxy.jpg
+      title: Cartwheel galaxy
+    - file: ic5332.jpg
+      title: Brave, most unusual transformators never experience a calm, virtual ship.
+    - file: oyster-nebula.jpg
+      title: Oyster nebula
+    - file: cme-erupts-on-sun.jpg
+      title: When the crew harvests for hyperspace, all ships feed brave, ordinary starships.
+  ids:
+    file:
+      type: string
+  constants:
+    user: jim@finalist.nl
+process:
+  name: title
+  field_media_image/target_id:
+      plugin: migration_lookup
+      migration: dum_file
+      source: file
+  field_media_image/alt: title
+  field_media_image/title: title
+  uid:
+    plugin: migration_lookup
+    migration: dum_user
+    source: constants/user
+destination:
+  plugin: 'entity:media'
+  default_bundle: image
+migration_dependencies:
+  required:
+    - dum_file
+    - dum_user

@@ -1,0 +1,63 @@
+id: dum_menu_link_content
+label: Menu links
+migration_tags:
+  - dummy_content
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      title: Virtual cosmonaut
+      menu: main
+      parent: ''
+    -
+      title: Wobble wildly
+      menu: main
+      parent: ''
+    -
+      title: Collective sensors
+      menu: main
+      parent: ''
+    -
+      title: The powerdrain
+      menu: main
+      parent: ''
+    -
+      title: Metamorphosis
+      menu: main
+      parent: 'Wobble wildly'
+    -
+      title: History and beauty
+      menu: main
+      parent: 'Wobble wildly'
+  constants:
+    path: internal:/page-1
+  ids:
+    title:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    default_value: 'nl'
+  bundle:
+    plugin: default_value
+    default_value: menu_link_content
+  title: title
+  description: description
+  menu_name: menu
+  'link/uri': constants/path
+  'link/options':
+    - plugin: default_value
+      default_value: {}
+  parent:
+    plugin: menu_link_parent
+    source:
+      - parent
+      - menu
+      - constants/path
+destination:
+  plugin: entity:menu_link_content
+  no_stub: true
+migration_dependencies:
+  required:
+    - dum_node_page
+  optional: { }

@@ -1,0 +1,50 @@
+id: dum_file
+migration_tags:
+  - dummy_content
+label: "File"
+source:
+  plugin: embedded_data
+  data_rows:
+    - file: person-1.jpg
+    - file: person-2.jpg
+    - file: person-3.jpg
+    - file: person-4.jpg
+    - file: person-5.jpg
+    - file: bat-shadow.png
+    - file: cartwheel-galaxy.jpg
+    - file: cme-erupts-on-sun.jpg
+    - file: ic5332.jpg
+    - file: oyster-nebula.jpg
+    - file: sample.pdf
+  ids:
+    file:
+      type: string
+  constants:
+    source_folder: modules/custom/dummy_content/files
+    dest_folder: public://
+process:
+  docroot:
+    plugin: callback
+    callable: realpath
+    source: '.'
+  file_source_path:
+    plugin: concat
+    source:
+      - '@docroot'
+      - constants/source_folder
+      - file
+    delimiter: /
+  file_destination_path:
+    plugin: concat
+    source:
+      - constants/dest_folder
+      - destination_file_name
+  fid: id
+  filename: file
+  uri:
+    plugin: file_copy
+    source:
+      - '@file_source_path'
+      - '@file_destination_path'
+destination:
+  plugin: entity:file

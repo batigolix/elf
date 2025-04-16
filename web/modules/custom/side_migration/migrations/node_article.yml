@@ -9,13 +9,12 @@ source:
   bundle: 'blog'
 process:
   title: title
+  uid: uid
   status: status
   field_image: field_image
   body: body
   field_tags: field_tags
   created: created
-  'path/pathauto': 'path/pathauto'
-  'path/alias': 'path/alias'
 destination:
   plugin: 'entity:node'
   default_bundle: 'article'

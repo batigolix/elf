@@ -50,3 +50,4 @@ content:
 hidden:
   field_image: true
   field_samenvatting: true
+  langcode: true

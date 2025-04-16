@@ -1,0 +1,45 @@
+langcode: en
+status: true
+id: node_page_3
+label: 'Node: Page - Create translation'
+migration_tags:
+  - inside_job
+source:
+  plugin: 'content_entity:node'
+  bundle: page
+process:
+
+  # Uses the same NID so that it can overwrite the current node.
+  translation_source:
+    plugin: get_translation_source
+    source: title/0/value
+  skip:
+    plugin: skip_on_value
+    source: '@translation_source'
+    method: row
+    value: false
+  nid: '@translation_source'
+
+  title: title/0/value
+  body/value: body/0/value
+  body/format: body/0/format
+  field_samenvatting: field_samenvatting
+  langcode: langcode
+#  # Assign the value of the old field to the new field.
+#  field_media_image:
+#    plugin: sub_process
+#    source: field_image
+#    process:
+#      target_id:
+#        plugin: migration_lookup
+#        migration:
+#          - media_image_from_node_image
+#        source: target_id
+
+destination:
+  plugin: 'entity:node'
+  default_bundle: 'page'
+  translations: true
+
+migration_dependencies:
+  required: {}

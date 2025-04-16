@@ -53,3 +53,4 @@ content:
     region: content
 hidden:
   field_description: true
+  langcode: true

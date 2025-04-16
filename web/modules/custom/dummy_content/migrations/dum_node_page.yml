@@ -1,0 +1,104 @@
+langcode: en
+status: true
+migration_tags:
+  - dummy_content
+id: dum_node_page
+label: 'Node: page'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      title: Moons meet with voyage at the huge center
+      body: |
+        <p>Courage at the galaxy that is when quirky space suits malfunction.
+        This sonic shower has only been translated by a spheroid space.
+        faith, shield, and death.</p>
+        <p>Fly without ionic cannon, and we won’t convert a collective.
+        Friendship at the alpha quadrant was the adventure of pattern, captured to a ugly teleporter.
+        Countless starlight travels will be lost in energies like minerals in ellipses.</p>
+      date: '01-11-2025'
+      summary: |
+        All of those attitudes will be lost in loves like hypnosis in lifes
+        None of these honors will be lost in minerals like mysteries in beauties
+        procedure, alarm, and assimilation.
+      path: '/page-1'
+      file: bat-shadow.png
+      langcode: nl
+    -
+      title: Space suits warp with attitude at the cloudy cosmos
+      body: |
+        <p>Peace at the universe that is when neutral teleporters yell.
+        Rumour at the solar sphere that is when small space suits die.
+        faith, galaxy, and future.</p>
+        <p>Die without future, and we won’t travel a mermaid.
+        The emitter is more ferengi now than kahless. seismic and cunningly ugly.
+        The moon is more space now than space suit. ordinary and accelerative proud.</p>
+      date: '01-11-2025'
+      summary: |
+        Love at the space station was the vision of understanding, handled to a strange captain.
+        Moon at the colony was the attitude of paralysis, translated to a calm sonic shower.
+        species tremble with anomaly.
+      path: '/page-1'
+      file: cartwheel-galaxy.jpg
+      langcode: en
+    -
+      title: Ruimtepakken vervormen met houding in de bewolkte kosmos
+      body: |
+        <p>Vrede in het universum, dat is wanneer neutrale teleporteerders schreeuwen.
+        Geruchten in de zonnesfeer, dat is wanneer kleine ruimtepakken sterven.
+        Geloof, Melkweg en Toekomst.</p>
+        <p>Sterf zonder toekomst, en we zullen niet als een zeemeermin reizen.
+        De emitter is nu meer ferengi dan kahless. Seismisch en sluw lelijk.
+        De maan is nu meer ruimte dan ruimtepak. Gewoon en versnellend trots.</p>
+      date: '01-11-2025'
+      summary: |
+        Liefde in het ruimtestation was de visie van begrip, aangereikt aan een vreemde kapitein.
+        De maan in de kolonie was de houding van verlamming, vertaald in een kalme sonische regenbui.
+        De soorten trillen van de anomalie.
+      path: '/pagina-3'
+      file: cartwheel-galaxy.jpg
+      langcode: nl
+  ids:
+    title:
+      type: string
+  constants:
+    user: jane@finalist.nl
+    alt: Suns reproduce from galaxies like solid aliens
+process:
+  title: title
+  status:
+    plugin: default_value
+    default_value: 1
+  sticky:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: migration_lookup
+    migration: dum_user
+    source: constants/user
+  'body/value': body
+  'body/format':
+    plugin: default_value
+    default_value: basic_html
+  created:
+    plugin: format_date
+    from_format: 'd-m-Y'
+    to_format: 'U'
+    source: date
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': path
+  field_samenvatting: summary
+  field_image/target_id:
+    plugin: migration_lookup
+    migration: dum_file
+    source: file
+  field_image/alt: constants/alt
+  langcode: langcode
+destination:
+  plugin: 'entity:node'
+  default_bundle: 'page'
+migration_dependencies:
+  required:
+    - dum_user
