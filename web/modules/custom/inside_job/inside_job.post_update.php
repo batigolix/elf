@@ -3,7 +3,7 @@
 /**
  * Post-update hook to execute a migration.
  */
-function side_migration_post_update_run_migration(&$sandbox) {
+function inside_job_post_update_run_migration(&$sandbox) {
   // The ID of the migration to execute.
     $migration_id = 'taxonomy_term_tags';
 

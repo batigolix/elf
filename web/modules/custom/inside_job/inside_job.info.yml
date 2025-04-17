@@ -1,6 +1,6 @@
-name: 'Side migration'
+name: 'Inside job'
 type: module
-description: 'side'
+description: 'Demo for the Inside job presentation'
 package: Custom
 core_version_requirement: ^10 || ^11
 dependencies:

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\side_migration\Plugin\migrate\source;
+namespace Drupal\inside_job\Plugin\migrate\source;
 
 use Drupal\Core\Database\Database;
 use Drupal\migrate\Plugin\migrate\source\SourcePluginBase;

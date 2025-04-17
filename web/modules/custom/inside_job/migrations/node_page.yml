@@ -15,15 +15,6 @@ process:
   # Assign the value of the old field to the new field.
   field_summary: field_samenvatting
 
-  # Keep the changed date to the original value
-  changed:
-    plugin: sub_process
-    source: changed
-    process:
-      value: value
-      preserve:
-        plugin: default_value
-        default_value: true
 destination:
   plugin: 'entity:node'
   default_bundle: page

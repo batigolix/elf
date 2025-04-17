@@ -1,5 +1,5 @@
 id: taxonomy_term_tags
-label: 'Taxonomy term: Tags'
+label: 'Taxonomy term: Tags (for post update hook demo)'
 migration_tags:
   - inside_job
 source:

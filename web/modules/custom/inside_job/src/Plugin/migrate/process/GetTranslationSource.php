@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\side_migration\Plugin\migrate\process;
+namespace Drupal\inside_job\Plugin\migrate\process;
 
 use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\MigrateException;
