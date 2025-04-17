@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.author.field_author
     - field.field.node.author.field_email_address
     - field.field.node.author.field_first_name
     - field.field.node.author.field_last_name
@@ -17,14 +16,6 @@ targetEntityType: node
 bundle: author
 mode: default
 content:
-  field_author:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 106
-    region: content
   field_email_address:
     type: basic_string
     label: above
