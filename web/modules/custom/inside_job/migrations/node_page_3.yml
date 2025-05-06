@@ -25,16 +25,6 @@ process:
   body/format: body/0/format
   field_samenvatting: field_samenvatting
   langcode: langcode
-#  # Assign the value of the old field to the new field.
-#  field_media_image:
-#    plugin: sub_process
-#    source: field_image
-#    process:
-#      target_id:
-#        plugin: migration_lookup
-#        migration:
-#          - media_image_from_node_image
-#        source: target_id
 
 destination:
   plugin: 'entity:node'

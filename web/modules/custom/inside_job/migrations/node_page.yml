@@ -20,7 +20,6 @@ destination:
   default_bundle: page
   overwrite_properties:
     - field_summary
-    - changed
 migration_dependencies:
   required: {}
 
